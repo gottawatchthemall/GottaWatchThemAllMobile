@@ -8,12 +8,20 @@
 import SwiftUI
 
 struct HomeView: View {
-    
+    init() {
+        UIFont.familyNames.forEach({name in
+            for font_name in UIFont.fontNames(forFamilyName: name) {
+                print("\n\(font_name)")
+            }
+        })
+    }
     var body: some View {
+       
         VStack {
             Text("Gotta watch them all")
-                    .font(.largeTitle)
+                    .font(.custom("PokemonSolidNormal", size: 40))
                     .padding(20)
+                    .multilineTextAlignment(.center)
                     .padding(.top, 50)
                     .foregroundColor(Color("TitleColor"))
             
@@ -36,7 +44,11 @@ struct HomeView: View {
         }
         
     }
+    
+    
+    
 }
+
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {

@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8906D6B4267268C1002EB41A /* PasswordFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8906D6B3267268C1002EB41A /* PasswordFieldView.swift */; };
-		8906D6B826726A58002EB41A /* InputFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8906D6B726726A58002EB41A /* InputFieldView.swift */; };
 		891C950626724EE90020D788 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891C950526724EE90020D788 /* HomeView.swift */; };
 		891C9508267250040020D788 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891C9507267250040020D788 /* LoginView.swift */; };
 		891C950A267250110020D788 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891C9509267250110020D788 /* RegisterView.swift */; };
@@ -16,11 +14,13 @@
 		89F025A4266E107F006029DC /* GottaWatchThemAllMobileApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F025A3266E107F006029DC /* GottaWatchThemAllMobileApp.swift */; };
 		89F025A8266E1083006029DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89F025A7266E1083006029DC /* Assets.xcassets */; };
 		89F025AB266E1083006029DC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89F025AA266E1083006029DC /* Preview Assets.xcassets */; };
+		89FCF45A267277FF002047AC /* PasswordFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FCF459267277FF002047AC /* PasswordFieldView.swift */; };
+		89FCF45C2672780A002047AC /* InputFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FCF45B2672780A002047AC /* InputFieldView.swift */; };
+		89FCF46026727C07002047AC /* Pokemon-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 89FCF45E26727C07002047AC /* Pokemon-Black.ttf */; };
+		89FCF46126727C07002047AC /* Pokemon-White.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 89FCF45F26727C07002047AC /* Pokemon-White.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8906D6B3267268C1002EB41A /* PasswordFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PasswordFieldView.swift; path = /Users/jeremyternisien/Dev/iOS/GottaWatchThemAllMobile/GottaWatchThemAllMobile/GottaWatchThemAllMobile/PasswordFieldView.swift; sourceTree = "<absolute>"; };
-		8906D6B726726A58002EB41A /* InputFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InputFieldView.swift; path = /Users/jeremyternisien/Dev/iOS/GottaWatchThemAllMobile/GottaWatchThemAllMobile/GottaWatchThemAllMobile/InputFieldView.swift; sourceTree = "<absolute>"; };
 		891C950526724EE90020D788 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		891C9507267250040020D788 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		891C9509267250110020D788 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
@@ -30,6 +30,10 @@
 		89F025A7266E1083006029DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		89F025AA266E1083006029DC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		89F025AC266E1083006029DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		89FCF459267277FF002047AC /* PasswordFieldView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordFieldView.swift; sourceTree = "<group>"; };
+		89FCF45B2672780A002047AC /* InputFieldView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputFieldView.swift; sourceTree = "<group>"; };
+		89FCF45E26727C07002047AC /* Pokemon-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pokemon-Black.ttf"; sourceTree = "<group>"; };
+		89FCF45F26727C07002047AC /* Pokemon-White.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pokemon-White.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,8 +66,9 @@
 		89F025A2266E107F006029DC /* GottaWatchThemAllMobile */ = {
 			isa = PBXGroup;
 			children = (
-				8906D6B726726A58002EB41A /* InputFieldView.swift */,
-				8906D6B3267268C1002EB41A /* PasswordFieldView.swift */,
+				89FCF45D26727C07002047AC /* Pokemon-font */,
+				89FCF45B2672780A002047AC /* InputFieldView.swift */,
+				89FCF459267277FF002047AC /* PasswordFieldView.swift */,
 				891C950D267257C50020D788 /* LogButtonView.swift */,
 				891C9509267250110020D788 /* RegisterView.swift */,
 				891C9507267250040020D788 /* LoginView.swift */,
@@ -82,6 +87,15 @@
 				89F025AA266E1083006029DC /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		89FCF45D26727C07002047AC /* Pokemon-font */ = {
+			isa = PBXGroup;
+			children = (
+				89FCF45E26727C07002047AC /* Pokemon-Black.ttf */,
+				89FCF45F26727C07002047AC /* Pokemon-White.ttf */,
+			);
+			path = "Pokemon-font";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,8 +155,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89FCF46126727C07002047AC /* Pokemon-White.ttf in Resources */,
 				89F025AB266E1083006029DC /* Preview Assets.xcassets in Resources */,
 				89F025A8266E1083006029DC /* Assets.xcassets in Resources */,
+				89FCF46026727C07002047AC /* Pokemon-Black.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,10 +169,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8906D6B826726A58002EB41A /* InputFieldView.swift in Sources */,
+				89FCF45C2672780A002047AC /* InputFieldView.swift in Sources */,
 				891C950626724EE90020D788 /* HomeView.swift in Sources */,
-				8906D6B4267268C1002EB41A /* PasswordFieldView.swift in Sources */,
 				891C950A267250110020D788 /* RegisterView.swift in Sources */,
+				89FCF45A267277FF002047AC /* PasswordFieldView.swift in Sources */,
 				891C9508267250040020D788 /* LoginView.swift in Sources */,
 				89F025A4266E107F006029DC /* GottaWatchThemAllMobileApp.swift in Sources */,
 				891C950E267257C50020D788 /* LogButtonView.swift in Sources */,
