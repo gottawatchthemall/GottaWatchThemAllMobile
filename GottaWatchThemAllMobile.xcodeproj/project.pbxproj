@@ -7,16 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		891C950626724EE90020D788 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891C950526724EE90020D788 /* HomeView.swift */; };
+		891C9508267250040020D788 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891C9507267250040020D788 /* LoginView.swift */; };
+		891C950A267250110020D788 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891C9509267250110020D788 /* RegisterView.swift */; };
+		891C950E267257C50020D788 /* LogButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891C950D267257C50020D788 /* LogButtonView.swift */; };
 		89F025A4266E107F006029DC /* GottaWatchThemAllMobileApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F025A3266E107F006029DC /* GottaWatchThemAllMobileApp.swift */; };
-		89F025A6266E107F006029DC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F025A5266E107F006029DC /* ContentView.swift */; };
 		89F025A8266E1083006029DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89F025A7266E1083006029DC /* Assets.xcassets */; };
 		89F025AB266E1083006029DC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89F025AA266E1083006029DC /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		891C950526724EE90020D788 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		891C9507267250040020D788 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		891C9509267250110020D788 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		891C950D267257C50020D788 /* LogButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogButtonView.swift; sourceTree = "<group>"; };
 		89F025A0266E107F006029DC /* GottaWatchThemAllMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GottaWatchThemAllMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89F025A3266E107F006029DC /* GottaWatchThemAllMobileApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GottaWatchThemAllMobileApp.swift; sourceTree = "<group>"; };
-		89F025A5266E107F006029DC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		89F025A7266E1083006029DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		89F025AA266E1083006029DC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		89F025AC266E1083006029DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -52,8 +58,11 @@
 		89F025A2266E107F006029DC /* GottaWatchThemAllMobile */ = {
 			isa = PBXGroup;
 			children = (
+				891C950D267257C50020D788 /* LogButtonView.swift */,
+				891C9509267250110020D788 /* RegisterView.swift */,
+				891C9507267250040020D788 /* LoginView.swift */,
+				891C950526724EE90020D788 /* HomeView.swift */,
 				89F025A3266E107F006029DC /* GottaWatchThemAllMobileApp.swift */,
-				89F025A5266E107F006029DC /* ContentView.swift */,
 				89F025A7266E1083006029DC /* Assets.xcassets */,
 				89F025AC266E1083006029DC /* Info.plist */,
 				89F025A9266E1083006029DC /* Preview Content */,
@@ -138,8 +147,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				89F025A6266E107F006029DC /* ContentView.swift in Sources */,
+				891C950626724EE90020D788 /* HomeView.swift in Sources */,
+				891C950A267250110020D788 /* RegisterView.swift in Sources */,
+				891C9508267250040020D788 /* LoginView.swift in Sources */,
 				89F025A4266E107F006029DC /* GottaWatchThemAllMobileApp.swift in Sources */,
+				891C950E267257C50020D788 /* LogButtonView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
