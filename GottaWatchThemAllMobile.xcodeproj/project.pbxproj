@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8906D6B4267268C1002EB41A /* PasswordFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8906D6B3267268C1002EB41A /* PasswordFieldView.swift */; };
+		8906D6B826726A58002EB41A /* InputFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8906D6B726726A58002EB41A /* InputFieldView.swift */; };
 		891C950626724EE90020D788 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891C950526724EE90020D788 /* HomeView.swift */; };
 		891C9508267250040020D788 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891C9507267250040020D788 /* LoginView.swift */; };
 		891C950A267250110020D788 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891C9509267250110020D788 /* RegisterView.swift */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8906D6B3267268C1002EB41A /* PasswordFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PasswordFieldView.swift; path = /Users/jeremyternisien/Dev/iOS/GottaWatchThemAllMobile/GottaWatchThemAllMobile/GottaWatchThemAllMobile/PasswordFieldView.swift; sourceTree = "<absolute>"; };
+		8906D6B726726A58002EB41A /* InputFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InputFieldView.swift; path = /Users/jeremyternisien/Dev/iOS/GottaWatchThemAllMobile/GottaWatchThemAllMobile/GottaWatchThemAllMobile/InputFieldView.swift; sourceTree = "<absolute>"; };
 		891C950526724EE90020D788 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		891C9507267250040020D788 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		891C9509267250110020D788 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
@@ -58,6 +62,8 @@
 		89F025A2266E107F006029DC /* GottaWatchThemAllMobile */ = {
 			isa = PBXGroup;
 			children = (
+				8906D6B726726A58002EB41A /* InputFieldView.swift */,
+				8906D6B3267268C1002EB41A /* PasswordFieldView.swift */,
 				891C950D267257C50020D788 /* LogButtonView.swift */,
 				891C9509267250110020D788 /* RegisterView.swift */,
 				891C9507267250040020D788 /* LoginView.swift */,
@@ -147,7 +153,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8906D6B826726A58002EB41A /* InputFieldView.swift in Sources */,
 				891C950626724EE90020D788 /* HomeView.swift in Sources */,
+				8906D6B4267268C1002EB41A /* PasswordFieldView.swift in Sources */,
 				891C950A267250110020D788 /* RegisterView.swift in Sources */,
 				891C9508267250040020D788 /* LoginView.swift in Sources */,
 				89F025A4266E107F006029DC /* GottaWatchThemAllMobileApp.swift in Sources */,

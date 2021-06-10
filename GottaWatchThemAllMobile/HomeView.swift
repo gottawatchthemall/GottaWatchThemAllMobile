@@ -10,18 +10,31 @@ import SwiftUI
 struct HomeView: View {
     
     var body: some View {
-        
-        TabView {
-            LoginView()
-                .tabItem {
-                    Text("Login")
-                }
+        VStack {
+            Text("Gotta watch them all")
+                    .font(.largeTitle)
+                    .padding(20)
+                    .padding(.top, 50)
+                    .foregroundColor(Color("TitleColor"))
             
-            RegisterView()
-                .tabItem {
-                    Text("Register")
-                }
+            TabView {
+                LoginView()
+                    .tabItem {
+                        Text("Login")
+                        Image(systemName: "person.crop.circle.fill")
+                    }
+                
+                RegisterView()
+                    .tabItem {
+                        Text("Register")
+                        Image(systemName: "person.crop.circle.fill.badge.plus")
+                    }
+            }.onAppear() {
+                UITabBar.appearance().barTintColor = .white
+            }
+            .accentColor(.red)
         }
+        
     }
 }
 
