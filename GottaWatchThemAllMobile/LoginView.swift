@@ -15,13 +15,14 @@ struct LoginView: View {
     var body: some View {
         
         VStack {
-
+            Spacer()
             InputFieldView(name: "Username", value: $username)
             PasswordFieldView(value: $password)
-
+            Spacer()
             Button(action: {print("Trying to log in !")}) {
-                LogButtonView(buttonTitle: "Log in")
+                RedButtonView(buttonTitle: "Log in")
             }
+            Spacer()
         }
     }
 }

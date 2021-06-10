@@ -11,7 +11,7 @@ import SwiftUI
 struct GottaWatchThemAllMobileApp: App {
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            HomeLogView()
         }
     }
 }

@@ -15,12 +15,14 @@ struct RegisterView: View {
     var body: some View {
         
         VStack {
+            Spacer()
             InputFieldView(name: "Username", value: $username)
             PasswordFieldView(value: $password)
-
+            Spacer()
             Button(action: {print("Trying to register !")}) {
-                LogButtonView(buttonTitle: "Register")
+                RedButtonView(buttonTitle: "Register")
             }
+            Spacer()
         }
     }
 }

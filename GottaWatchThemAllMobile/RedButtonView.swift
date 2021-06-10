@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LogButtonView: View {
+struct RedButtonView: View {
     var buttonTitle : String
     
     var body: some View {
@@ -21,8 +21,8 @@ struct LogButtonView: View {
         }
 }
 
-struct LogButtonView_Previews: PreviewProvider {
+struct RedButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        LogButtonView(buttonTitle: "Valider")
+        RedButtonView(buttonTitle: "Valider")
     }
 }

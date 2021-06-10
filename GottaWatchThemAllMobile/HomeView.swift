@@ -1,5 +1,5 @@
 //
-//  HomeView.swift
+//  ChooseActionView.swift
 //  GottaWatchThemAllMobile
 //
 //  Created by Jérémy TERNISIEN on 10/06/2021.
@@ -8,47 +8,37 @@
 import SwiftUI
 
 struct HomeView: View {
-    init() {
-        UIFont.familyNames.forEach({name in
-            for font_name in UIFont.fontNames(forFamilyName: name) {
-                print("\n\(font_name)")
-            }
-        })
-    }
     var body: some View {
-       
         VStack {
-            Text("Gotta watch them all")
-                    .font(.custom("PokemonSolidNormal", size: 40))
-                    .padding(20)
-                    .multilineTextAlignment(.center)
-                    .padding(.top, 50)
-                    .foregroundColor(Color("TitleColor"))
+            Spacer()
             
             TabView {
-                LoginView()
+                MyWorksView()
                     .tabItem {
-                        Text("Login")
-                        Image(systemName: "person.crop.circle.fill")
+                        Text("My works")
+                        Image(systemName: "photo.fill.on.rectangle.fill")
                     }
                 
-                RegisterView()
+                SearchWorkView()
                     .tabItem {
-                        Text("Register")
-                        Image(systemName: "person.crop.circle.fill.badge.plus")
+                        Text("Search a work")
+                        Image(systemName: "magnifyingglass.circle.fill")
                     }
+                
+                SearchUserView()
+                    .tabItem {
+                        Text("Search a user")
+                        Image(systemName: "person.crop.rectangle.fill")
+                    }
+                
             }.onAppear() {
                 UITabBar.appearance().barTintColor = .white
             }
             .accentColor(.red)
-        }
-        
-    }
-    
-    
-    
-}
 
+        }
+    }
+}
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
