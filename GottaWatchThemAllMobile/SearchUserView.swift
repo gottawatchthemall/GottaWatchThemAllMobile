@@ -10,7 +10,7 @@ import SwiftUI
 struct SearchUserView: View {
     var body: some View {
         VStack {
-            TitleView(title: "All Users")
+            TitleView(title: "Search user")
             Spacer()
         }
     }

@@ -14,7 +14,7 @@ struct PasswordFieldView: View {
     var body: some View {
         return SecureField("Password", text: $value)
             .padding()
-            .background(Color("InputColor"))
+            .background(Color("WhitePokeball"))
             .cornerRadius(5.0)
             .padding(20)
     }

@@ -7,22 +7,23 @@
 
 import SwiftUI
 
-struct RedButtonView: View {
+struct SimpleButtonView: View {
     var buttonTitle : String
+    var buttonColor: Color
     
     var body: some View {
         return Text(buttonTitle)
                 .font(.headline)
                 .foregroundColor(.white)
-                .padding()
+                //.padding()
                 .frame(width: 220, height: 60)
-                .background(Color("ButtonColor"))
+                .background(buttonColor)
                 .cornerRadius(15.0)
         }
 }
 
-struct RedButtonView_Previews: PreviewProvider {
+struct SimpleButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        RedButtonView(buttonTitle: "Valider")
+        SimpleButtonView(buttonTitle: "Valider", buttonColor: Color("RedPokeball"))
     }
 }

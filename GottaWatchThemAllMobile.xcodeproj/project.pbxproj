@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		891C950626724EE90020D788 /* HomeLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891C950526724EE90020D788 /* HomeLogView.swift */; };
+		891C950626724EE90020D788 /* MainLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891C950526724EE90020D788 /* MainLogView.swift */; };
 		891C9508267250040020D788 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891C9507267250040020D788 /* LoginView.swift */; };
 		891C950A267250110020D788 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891C9509267250110020D788 /* RegisterView.swift */; };
-		891C950E267257C50020D788 /* RedButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891C950D267257C50020D788 /* RedButtonView.swift */; };
+		891C950E267257C50020D788 /* SimpleButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891C950D267257C50020D788 /* SimpleButtonView.swift */; };
+		89863C7A2673500300AE8D04 /* LogButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89863C792673500300AE8D04 /* LogButtonView.swift */; };
 		89F025A4266E107F006029DC /* GottaWatchThemAllMobileApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F025A3266E107F006029DC /* GottaWatchThemAllMobileApp.swift */; };
 		89F025A8266E1083006029DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89F025A7266E1083006029DC /* Assets.xcassets */; };
 		89F025AB266E1083006029DC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89F025AA266E1083006029DC /* Preview Assets.xcassets */; };
@@ -26,10 +27,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		891C950526724EE90020D788 /* HomeLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLogView.swift; sourceTree = "<group>"; };
+		891C950526724EE90020D788 /* MainLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainLogView.swift; sourceTree = "<group>"; };
 		891C9507267250040020D788 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		891C9509267250110020D788 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
-		891C950D267257C50020D788 /* RedButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedButtonView.swift; sourceTree = "<group>"; };
+		891C950D267257C50020D788 /* SimpleButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleButtonView.swift; sourceTree = "<group>"; };
+		89863C792673500300AE8D04 /* LogButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogButtonView.swift; sourceTree = "<group>"; };
 		89F025A0266E107F006029DC /* GottaWatchThemAllMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GottaWatchThemAllMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89F025A3266E107F006029DC /* GottaWatchThemAllMobileApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GottaWatchThemAllMobileApp.swift; sourceTree = "<group>"; };
 		89F025A7266E1083006029DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -80,14 +82,15 @@
 				89FCF45B2672780A002047AC /* InputFieldView.swift */,
 				89FCF46226727EE3002047AC /* HomeView.swift */,
 				89FCF459267277FF002047AC /* PasswordFieldView.swift */,
-				891C950D267257C50020D788 /* RedButtonView.swift */,
+				891C950D267257C50020D788 /* SimpleButtonView.swift */,
 				891C9509267250110020D788 /* RegisterView.swift */,
 				891C9507267250040020D788 /* LoginView.swift */,
-				891C950526724EE90020D788 /* HomeLogView.swift */,
+				891C950526724EE90020D788 /* MainLogView.swift */,
 				89FCF468267281BC002047AC /* SearchUserView.swift */,
 				89FCF46A267281CC002047AC /* MyWorksView.swift */,
 				89FCF466267281A2002047AC /* SearchWorkView.swift */,
 				89FCF46426728042002047AC /* TitleView.swift */,
+				89863C792673500300AE8D04 /* LogButtonView.swift */,
 				89F025A3266E107F006029DC /* GottaWatchThemAllMobileApp.swift */,
 				89F025A7266E1083006029DC /* Assets.xcassets */,
 				89F025AC266E1083006029DC /* Info.plist */,
@@ -186,16 +189,17 @@
 			files = (
 				89FCF46526728042002047AC /* TitleView.swift in Sources */,
 				89FCF469267281BC002047AC /* SearchUserView.swift in Sources */,
+				89863C7A2673500300AE8D04 /* LogButtonView.swift in Sources */,
 				89FCF45C2672780A002047AC /* InputFieldView.swift in Sources */,
 				89FCF46B267281CC002047AC /* MyWorksView.swift in Sources */,
-				891C950626724EE90020D788 /* HomeLogView.swift in Sources */,
+				891C950626724EE90020D788 /* MainLogView.swift in Sources */,
 				89FCF467267281A2002047AC /* SearchWorkView.swift in Sources */,
 				891C950A267250110020D788 /* RegisterView.swift in Sources */,
 				89FCF46326727EE3002047AC /* HomeView.swift in Sources */,
 				89FCF45A267277FF002047AC /* PasswordFieldView.swift in Sources */,
 				891C9508267250040020D788 /* LoginView.swift in Sources */,
 				89F025A4266E107F006029DC /* GottaWatchThemAllMobileApp.swift in Sources */,
-				891C950E267257C50020D788 /* RedButtonView.swift in Sources */,
+				891C950E267257C50020D788 /* SimpleButtonView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

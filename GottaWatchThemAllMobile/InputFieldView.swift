@@ -15,7 +15,7 @@ struct InputFieldView: View {
     var body: some View {
         return TextField(name, text: $value)
             .padding()
-            .background(Color("InputColor"))
+            .background(Color("WhitePokeball"))
             .cornerRadius(5.0)
             .padding(20)
     }

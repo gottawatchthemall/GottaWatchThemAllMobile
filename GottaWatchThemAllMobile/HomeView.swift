@@ -21,13 +21,13 @@ struct HomeView: View {
                 
                 SearchWorkView()
                     .tabItem {
-                        Text("Search a work")
+                        Text("Works")
                         Image(systemName: "magnifyingglass.circle.fill")
                     }
                 
                 SearchUserView()
                     .tabItem {
-                        Text("Search a user")
+                        Text("Users")
                         Image(systemName: "person.crop.rectangle.fill")
                     }
                 
