@@ -15,24 +15,24 @@ struct HomeView: View {
             TabView {
                 MyWorksView()
                     .tabItem {
-                        Text("My works")
-                        Image(systemName: "photo.fill.on.rectangle.fill")
+                        Text("Watched")
+                        Image(systemName: "tv")
                     }
                 
                 SearchWorkView()
                     .tabItem {
                         Text("Works")
-                        Image(systemName: "magnifyingglass.circle.fill")
+                        Image(systemName: "magnifyingglass")
                     }
                 
                 SearchUserView()
                     .tabItem {
                         Text("Users")
-                        Image(systemName: "person.crop.rectangle.fill")
+                        Image(systemName: "person.crop.rectangle")
                     }
                 
             }.onAppear() {
-                UITabBar.appearance().barTintColor = .white
+                UITabBar.appearance().barTintColor = .clear
             }
             .accentColor(.red)
 

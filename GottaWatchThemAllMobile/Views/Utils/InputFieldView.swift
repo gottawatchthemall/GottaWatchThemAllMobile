@@ -9,7 +9,7 @@ import SwiftUI
 
 struct InputFieldView: View {
     
-    var name : String
+    let name : String
     @Binding var value: String
     
     var body: some View {

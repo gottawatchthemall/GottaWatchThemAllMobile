@@ -8,14 +8,13 @@
 import SwiftUI
 
 struct SimpleButtonView: View {
-    var buttonTitle : String
-    var buttonColor: Color
+    let buttonTitle : String
+    let buttonColor: Color
     
     var body: some View {
         return Text(buttonTitle)
                 .font(.headline)
                 .foregroundColor(.white)
-                //.padding()
                 .frame(width: 220, height: 60)
                 .background(buttonColor)
                 .cornerRadius(15.0)

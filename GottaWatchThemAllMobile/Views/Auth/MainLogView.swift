@@ -19,7 +19,6 @@ struct MainLogView: View {
                     label: {
                         SimpleButtonView(buttonTitle: "New account", buttonColor: Color("BlackPokeball"))
                     })
-                
             }
         }
     }

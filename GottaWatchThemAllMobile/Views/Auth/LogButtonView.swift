@@ -9,10 +9,10 @@ import SwiftUI
 
 struct LogButtonView: View {
     
-    var fontName: String
-    var buttonColor: Color
-    var textColor: Color
-    var buttonTitle: String
+    let fontName: String
+    let buttonColor: Color
+    let textColor: Color
+    let buttonTitle: String
     
     var body: some View {
         return Text(buttonTitle)

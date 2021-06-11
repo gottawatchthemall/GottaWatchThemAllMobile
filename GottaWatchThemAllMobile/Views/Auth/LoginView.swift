@@ -1,5 +1,5 @@
 //
-//  RegisterView.swift
+//  LoginView.swift
 //  GottaWatchThemAllMobile
 //
 //  Created by Jérémy TERNISIEN on 10/06/2021.
@@ -7,31 +7,30 @@
 
 import SwiftUI
 
-struct RegisterView: View {
+struct LoginView: View {
     
     @State var username: String = ""
     @State var password: String = ""
-    @State var email: String = ""
     
     var body: some View {
         
         VStack {
-            TitleView(title: "Gotta watch them all")
+            TitleView(title: "Log in")
+    
             Spacer()
-            InputFieldView(name: "Email", value: $email)
             InputFieldView(name: "Username", value: $username)
             PasswordFieldView(value: $password)
             Spacer()
-            Button(action: {print("Trying to register !")}) {
-                SimpleButtonView(buttonTitle: "Register", buttonColor: Color("BlackPokeball"))
+            Button(action: {print("Trying to log in !")}) {
+                SimpleButtonView(buttonTitle: "Validate", buttonColor: Color("RedPokeball"))
             }
             Spacer()
         }
     }
 }
 
-struct RegisterView_Previews: PreviewProvider {
+struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        RegisterView()
+        LoginView()
     }
 }
