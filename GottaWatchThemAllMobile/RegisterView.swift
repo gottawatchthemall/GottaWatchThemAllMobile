@@ -11,11 +11,13 @@ struct RegisterView: View {
     
     @State var username: String = ""
     @State var password: String = ""
+    @State var email: String = ""
     
     var body: some View {
         
         VStack {
             Spacer()
+            InputFieldView(name: "Email", value: $email)
             InputFieldView(name: "Username", value: $username)
             PasswordFieldView(value: $password)
             Spacer()
