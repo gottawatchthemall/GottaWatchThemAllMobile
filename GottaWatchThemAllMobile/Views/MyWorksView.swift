@@ -33,7 +33,7 @@ struct MyWorksView: View {
         NavigationView {
             VStack {
                 TitleView(title: "Watched works")
-                Spacer()
+        
                 
                 List(works) { work in
                     NavigationLink(
@@ -41,8 +41,10 @@ struct MyWorksView: View {
                         WorkRow(work: work)
                     }
                 }
-            }
+            }.navigationBarTitle("")
+            .navigationBarHidden(true)
         }
+        
     }
 }
 
