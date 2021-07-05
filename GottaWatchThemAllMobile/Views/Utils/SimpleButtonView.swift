@@ -10,12 +10,22 @@ import SwiftUI
 struct SimpleButtonView: View {
     let buttonTitle : String
     let buttonColor: Color
+    let buttonWidth: CGFloat
+    let buttonHeight: CGFloat
+    
+    init(buttonTitle: String, buttonColor: Color, buttonWidth: CGFloat = 220, buttonHeight: CGFloat = 60) {
+        self.buttonTitle = buttonTitle
+        self.buttonColor = buttonColor
+        self.buttonWidth = buttonWidth
+        self.buttonHeight = buttonHeight
+    }
+    
     
     var body: some View {
         return Text(buttonTitle)
                 .font(.headline)
                 .foregroundColor(.white)
-                .frame(width: 220, height: 60)
+                .frame(width: buttonWidth, height: buttonHeight)
                 .background(buttonColor)
                 .cornerRadius(15.0)
         }

@@ -22,7 +22,12 @@ struct RegisterView: View {
             InputFieldView(name: "Username", value: $username)
             PasswordFieldView(value: $password)
             Spacer()
-            Button(action: {print("Trying to register !")}) {
+            Button(action: {
+                    print("Trying to register !")
+                MyHttpService.get(path: "https://mocki.io/v1/f0e85b8e-f9c7-42a4-80e8-e3abf668feb3")
+
+                
+            }) {
                 SimpleButtonView(buttonTitle: "Validate", buttonColor: Color("BlackPokeball"))
             }
             Spacer()
