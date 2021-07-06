@@ -8,17 +8,17 @@
 import Foundation
 import SwiftUI
 
-struct Work: Identifiable, Hashable {
+struct Work: Identifiable, Hashable, Decodable {
     let id: Int
     let title: String
     let year: String
     let type: String
     let poster: String
-    let plot: String? = nil
-    let duration: Int? = nil
-    let directors: String? = nil
-    let writers: String? = nil
-    let actors: String? = nil
+    let plot: String?
+    let duration: Int?
+    let directors: String?
+    let writers: String?
+    let actors: String?
     
     var image: Image {
         Image(poster)
@@ -31,5 +31,21 @@ struct Work: Identifiable, Hashable {
         return "N/A"
     }
     
+    init(id: Int,
+    title: String,
+     year: String,
+     type: String,
+     poster: String) {
+        self.id = id
+        self.title = title
+        self.year = year
+        self.type = type
+        self.poster = poster
+        self.plot = nil
+        self.duration = nil
+        self.directors = nil
+        self.writers = nil
+        self.actors = nil
+    }
     
 }

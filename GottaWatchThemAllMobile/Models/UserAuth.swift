@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct UserAuth {
-    let token: String
+struct UserAuth: Codable {
     let username: String
-    let id: Int
+    let email: String
+    let password: String
 }

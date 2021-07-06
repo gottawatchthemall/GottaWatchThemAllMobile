@@ -31,6 +31,44 @@ extension View {
     }
 }
 
+struct SearchWorkRow: View {
+    @ObservedObject var imageLoader:ImageLoader
+    @State var image:UIImage = UIImage()
+    var work: Work
+    
+    init(work: Work) {
+        self.work = work
+        imageLoader = ImageLoader(urlString: work.poster)
+    }
+    
+    var body: some View {
+        HStack {
+            Image(uiImage: image)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width:50, height:50)
+                            .onReceive(imageLoader.didChange) { data in
+                            self.image = UIImage(data: data) ?? UIImage()
+                            }
+            VStack {
+                HStack {
+                    Text(work.title)
+                    Spacer()
+                }
+                HStack {
+                    Text(work.type)
+                    Spacer()
+                }
+            }
+            
+            Button("yo") {
+                
+            }
+            Spacer()
+        }
+    }
+}
+
 struct SearchWorkView: View {
     var works: [Work] = []
     @State var showCancelButton = false
@@ -79,11 +117,12 @@ struct SearchWorkView: View {
                 }
                 List {
                     ForEach(works.filter{$0.title.hasPrefix(searchText) || searchText == ""}, id:\.self) {
-                        WorkRow(work: $0)
+                        SearchWorkRow(work: $0)
                     }
                 }
                 .navigationBarTitle(Text("Search"))
                 .resignKeyboardOnDragGesture()
+                
                 Spacer()
             }.navigationBarTitle("")
             .navigationBarHidden(true)
@@ -91,6 +130,7 @@ struct SearchWorkView: View {
         .navigationBarHidden(true)
     }
 }
+
 
 struct SearchWorkView_Previews: PreviewProvider {
     static var previews: some View {

@@ -9,9 +9,9 @@ import SwiftUI
 
 @main
 struct GottaWatchThemAllMobileApp: App {
-    var body: some Scene {
+    var body: some Scene { 
         WindowGroup {
-            HomeView()
+            RegisterView()
         }
     }
 }

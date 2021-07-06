@@ -14,7 +14,6 @@ struct RegisterView: View {
     @State var email: String = ""
     
     var body: some View {
-        
         VStack {
             TitleView(title: "Create new account")
             Spacer()
@@ -23,10 +22,18 @@ struct RegisterView: View {
             PasswordFieldView(value: $password)
             Spacer()
             Button(action: {
-                    print("Trying to register !")
-                MyHttpService.get(path: "https://mocki.io/v1/f0e85b8e-f9c7-42a4-80e8-e3abf668feb3")
-
-                
+                print("Trying to register !")
+                let userAuth = UserAuth(username: username, email: email, password: password)
+                MyHttpService.post(path: "/auth/signup", body: userAuth,
+                                   requestType: UserAuth.self,
+                                   responseType: MessageResponse.self
+                ) { response in
+                    //navigate to register if succeed
+                    print(response ?? "Error")
+                    if(response != nil) {
+                        print("Registered !")
+                    }
+                }
             }) {
                 SimpleButtonView(buttonTitle: "Validate", buttonColor: Color("BlackPokeball"))
             }
