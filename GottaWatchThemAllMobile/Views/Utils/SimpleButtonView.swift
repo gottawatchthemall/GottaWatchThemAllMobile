@@ -12,17 +12,21 @@ struct SimpleButtonView: View {
     let buttonColor: Color
     let buttonWidth: CGFloat
     let buttonHeight: CGFloat
+    let action: () -> Void
     
-    init(buttonTitle: String, buttonColor: Color, buttonWidth: CGFloat = 220, buttonHeight: CGFloat = 60) {
+    init(buttonTitle: String, buttonColor: Color, buttonWidth: CGFloat = 220, buttonHeight: CGFloat = 60, action: @escaping () -> Void = {} ) {
         self.buttonTitle = buttonTitle
         self.buttonColor = buttonColor
         self.buttonWidth = buttonWidth
         self.buttonHeight = buttonHeight
+        self.action = action
     }
     
     
     var body: some View {
-        return Text(buttonTitle)
+        return Button(buttonTitle) {
+            action()
+        }
                 .font(.headline)
                 .foregroundColor(.white)
                 .frame(width: buttonWidth, height: buttonHeight)
@@ -33,6 +37,8 @@ struct SimpleButtonView: View {
 
 struct SimpleButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        SimpleButtonView(buttonTitle: "Valider", buttonColor: Color("RedPokeball"))
+        SimpleButtonView(buttonTitle: "Valider", buttonColor: Color("RedPokeball")) {
+            print("Salut")
+        }
     }
 }

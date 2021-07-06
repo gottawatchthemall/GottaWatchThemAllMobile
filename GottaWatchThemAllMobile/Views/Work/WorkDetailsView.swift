@@ -13,6 +13,8 @@ struct WorkDetailsView: View {
     @State var image:UIImage = UIImage()
     var work: Work
     
+    @State var displayWarning = false
+    
     init(work: Work) {
         self.work = work
         imageLoader = ImageLoader(urlString: work.poster)
@@ -58,8 +60,14 @@ struct WorkDetailsView: View {
                             SimpleButtonView(buttonTitle: "Commentaire", buttonColor: Color.orange, buttonWidth: 150)
                             }
                         .padding(.bottom, 11.0)
-                    SimpleButtonView(buttonTitle: "Supprimer", buttonColor: Color.red, buttonWidth: 150)
+                    
+                    SimpleButtonView(buttonTitle: "Supprimer", buttonColor: Color.red, buttonWidth: 150, action: { self.displayWarning.toggle()})
                         .padding(.bottom, 11.0)
+                        .actionSheet(isPresented: $displayWarning) {
+                            ActionSheet(title: Text("Suppression"), message: Text("Etes-vous sur de supprimer l'oeuvre de votre liste ?"),
+                                        buttons: [.destructive(Text("Supprimer"), action: {print("salut")}),
+                                                  .default(Text("Annuler"), action: {print("Supression")})])
+                        }
                 }
             }
             .navigationBarTitle(Text(work.title))
