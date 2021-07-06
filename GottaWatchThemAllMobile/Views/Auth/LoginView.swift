@@ -12,6 +12,8 @@ struct LoginView: View {
     @State var username: String = ""
     @State var password: String = ""
     
+    @Binding var isLog: Bool
+    
     var body: some View {
         
         VStack {
@@ -21,7 +23,9 @@ struct LoginView: View {
             InputFieldView(name: "Username", value: $username)
             PasswordFieldView(value: $password)
             Spacer()
-            Button(action: {print("Trying to log in !")}) {
+            Button(action: {
+                    isLog = true
+            }) {
                 SimpleButtonView(buttonTitle: "Validate", buttonColor: Color("RedPokeball"))
             }
             Spacer()
@@ -31,6 +35,6 @@ struct LoginView: View {
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView()
+        LoginView(isLog: .constant(false))
     }
 }

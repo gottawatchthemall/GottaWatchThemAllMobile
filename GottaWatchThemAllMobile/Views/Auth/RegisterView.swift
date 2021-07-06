@@ -13,6 +13,8 @@ struct RegisterView: View {
     @State var password: String = ""
     @State var email: String = ""
     
+    @Binding var isRegisterActive: Bool
+    
     var body: some View {
         VStack {
             TitleView(title: "Create new account")
@@ -29,6 +31,7 @@ struct RegisterView: View {
                                    responseType: MessageResponse.self
                 ) { response in
                     //navigate to register if succeed
+                    isRegisterActive = false;
                     print(response ?? "Error")
                     if(response != nil) {
                         print("Registered !")
@@ -44,6 +47,6 @@ struct RegisterView: View {
 
 struct RegisterView_Previews: PreviewProvider {
     static var previews: some View {
-        RegisterView()
+        RegisterView(isRegisterActive: .constant(true))
     }
 }

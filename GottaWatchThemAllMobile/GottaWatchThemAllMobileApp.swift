@@ -9,9 +9,18 @@ import SwiftUI
 
 @main
 struct GottaWatchThemAllMobileApp: App {
+    
+    @State var isLog = false;
+    
     var body: some Scene { 
         WindowGroup {
-            RegisterView()
+            
+            if(isLog) {
+                HomeView()
+            } else {
+                MainLogView(isLog: $isLog)
+            }
+            
         }
     }
 }

@@ -9,13 +9,17 @@ import SwiftUI
 
 struct MainLogView: View {
     
+    @Binding var isLog: Bool
+    @State var isRegisterViewActive = false;
+    
     var body: some View {
         NavigationView {
             
             VStack {
-                LoginView()
+                LoginView(isLog: $isLog)
                 NavigationLink(
-                    destination: RegisterView(),
+                    destination: RegisterView(isRegisterActive: $isRegisterViewActive),
+                    isActive: $isRegisterViewActive,
                     label: {
                         SimpleButtonView(buttonTitle: "New account", buttonColor: Color("BlackPokeball"))
                     })
@@ -27,6 +31,6 @@ struct MainLogView: View {
 
 struct MainLogView_Previews: PreviewProvider {
     static var previews: some View {
-        MainLogView()
+        MainLogView(isLog: .constant(false))
     }
 }
