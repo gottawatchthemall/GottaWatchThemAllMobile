@@ -7,6 +7,18 @@
 
 import SwiftUI
 
+
+extension View {
+
+    func appButton(buttonWidth: CGFloat, buttonHeight: CGFloat, buttonColor: Color	) -> some View {
+    self.font(.headline)
+        .foregroundColor(.white)
+        .frame(width: buttonWidth, height: buttonHeight)
+        .background(buttonColor)
+        .cornerRadius(15.0)
+}
+}
+
 struct SimpleButtonView: View {
     let buttonTitle : String
     let buttonColor: Color
@@ -26,13 +38,9 @@ struct SimpleButtonView: View {
     var body: some View {
         return Button(buttonTitle) {
             action()
+        }.appButton(buttonWidth: buttonWidth, buttonHeight: buttonHeight, buttonColor: buttonColor)
         }
-                .font(.headline)
-                .foregroundColor(.white)
-                .frame(width: buttonWidth, height: buttonHeight)
-                .background(buttonColor)
-                .cornerRadius(15.0)
-        }
+
 }
 
 struct SimpleButtonView_Previews: PreviewProvider {

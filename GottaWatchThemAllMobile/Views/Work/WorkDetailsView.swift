@@ -57,7 +57,7 @@ struct WorkDetailsView: View {
                 HStack {
                     NavigationLink(
                         destination: CommentsView(work: work)) {
-                            SimpleButtonView(buttonTitle: "Commentaire", buttonColor: Color.orange, buttonWidth: 150)
+                        Text("Commentaire").appButton(buttonWidth: 150, buttonHeight: 60, buttonColor: Color.orange)
                             }
                         .padding(.bottom, 11.0)
                     
