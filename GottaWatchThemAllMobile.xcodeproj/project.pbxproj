@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		201F8C6F2690DA2100B7D03E /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201F8C6E2690DA2100B7D03E /* ImageLoader.swift */; };
+		201F8C732690DC4B00B7D03E /* AsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201F8C722690DC4B00B7D03E /* AsyncImage.swift */; };
+		202C317C2689EEBC00D1081E /* HttpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202C317B2689EEBC00D1081E /* HttpService.swift */; };
+		209CBF6C2693486E00913830 /* CommentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209CBF6B2693486E00913830 /* CommentsView.swift */; };
+		209CBF702693594700913830 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209CBF6F2693594700913830 /* Comment.swift */; };
+		209CBF7326935FBC00913830 /* CommentRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209CBF7226935FBC00913830 /* CommentRow.swift */; };
 		891C950626724EE90020D788 /* MainLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891C950526724EE90020D788 /* MainLogView.swift */; };
 		891C9508267250040020D788 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891C9507267250040020D788 /* LoginView.swift */; };
 		891C950A267250110020D788 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891C9509267250110020D788 /* RegisterView.swift */; };
@@ -30,6 +36,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		201F8C6E2690DA2100B7D03E /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		201F8C722690DC4B00B7D03E /* AsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImage.swift; sourceTree = "<group>"; };
+		202C317B2689EEBC00D1081E /* HttpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpService.swift; sourceTree = "<group>"; };
+		209CBF6B2693486E00913830 /* CommentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsView.swift; sourceTree = "<group>"; };
+		209CBF6F2693594700913830 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		209CBF7226935FBC00913830 /* CommentRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRow.swift; sourceTree = "<group>"; };
 		891C950526724EE90020D788 /* MainLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainLogView.swift; sourceTree = "<group>"; };
 		891C9507267250040020D788 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		891C9509267250110020D788 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
@@ -65,15 +77,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		201F8C682690C2F900B7D03E /* Work */ = {
+			isa = PBXGroup;
+			children = (
+				89863C872673892500AE8D04 /* WorkDetailsView.swift */,
+				89FCF46A267281CC002047AC /* MyWorksView.swift */,
+			);
+			path = Work;
+			sourceTree = "<group>";
+		};
+		209CBF6A2693485300913830 /* Comment */ = {
+			isa = PBXGroup;
+			children = (
+				209CBF6B2693486E00913830 /* CommentsView.swift */,
+				209CBF7226935FBC00913830 /* CommentRow.swift */,
+			);
+			path = Comment;
+			sourceTree = "<group>";
+		};
 		89863C7D26736B5B00AE8D04 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				209CBF6A2693485300913830 /* Comment */,
+				201F8C682690C2F900B7D03E /* Work */,
 				89863C7F26736C3F00AE8D04 /* Utils */,
 				89863C7E26736BDE00AE8D04 /* Auth */,
 				89FCF46226727EE3002047AC /* HomeView.swift */,
-				89863C872673892500AE8D04 /* WorkDetailsView.swift */,
 				89FCF468267281BC002047AC /* SearchUserView.swift */,
-				89FCF46A267281CC002047AC /* MyWorksView.swift */,
 				89FCF466267281A2002047AC /* SearchWorkView.swift */,
 			);
 			path = Views;
@@ -106,6 +136,7 @@
 			children = (
 				89863C8326736DD800AE8D04 /* UserAuth.swift */,
 				89863C852673775B00AE8D04 /* Work.swift */,
+				209CBF6F2693594700913830 /* Comment.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -136,6 +167,9 @@
 				89F025A7266E1083006029DC /* Assets.xcassets */,
 				89F025AC266E1083006029DC /* Info.plist */,
 				89F025A9266E1083006029DC /* Preview Content */,
+				202C317B2689EEBC00D1081E /* HttpService.swift */,
+				201F8C6E2690DA2100B7D03E /* ImageLoader.swift */,
+				201F8C722690DC4B00B7D03E /* AsyncImage.swift */,
 			);
 			path = GottaWatchThemAllMobile;
 			sourceTree = "<group>";
@@ -230,17 +264,23 @@
 			files = (
 				89FCF46526728042002047AC /* TitleView.swift in Sources */,
 				89FCF469267281BC002047AC /* SearchUserView.swift in Sources */,
+				209CBF6C2693486E00913830 /* CommentsView.swift in Sources */,
 				89863C862673775B00AE8D04 /* Work.swift in Sources */,
 				89863C7A2673500300AE8D04 /* LogButtonView.swift in Sources */,
 				89863C882673892500AE8D04 /* WorkDetailsView.swift in Sources */,
 				89FCF45C2672780A002047AC /* InputFieldView.swift in Sources */,
 				89FCF46B267281CC002047AC /* MyWorksView.swift in Sources */,
+				209CBF7326935FBC00913830 /* CommentRow.swift in Sources */,
 				891C950626724EE90020D788 /* MainLogView.swift in Sources */,
+				202C317C2689EEBC00D1081E /* HttpService.swift in Sources */,
+				209CBF702693594700913830 /* Comment.swift in Sources */,
 				89863C8426736DD800AE8D04 /* UserAuth.swift in Sources */,
 				89FCF467267281A2002047AC /* SearchWorkView.swift in Sources */,
 				891C950A267250110020D788 /* RegisterView.swift in Sources */,
 				89FCF46326727EE3002047AC /* HomeView.swift in Sources */,
 				89FCF45A267277FF002047AC /* PasswordFieldView.swift in Sources */,
+				201F8C6F2690DA2100B7D03E /* ImageLoader.swift in Sources */,
+				201F8C732690DC4B00B7D03E /* AsyncImage.swift in Sources */,
 				891C9508267250040020D788 /* LoginView.swift in Sources */,
 				89F025A4266E107F006029DC /* GottaWatchThemAllMobileApp.swift in Sources */,
 				891C950E267257C50020D788 /* SimpleButtonView.swift in Sources */,
