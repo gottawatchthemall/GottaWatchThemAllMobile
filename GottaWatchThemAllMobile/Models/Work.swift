@@ -9,27 +9,30 @@ import Foundation
 import SwiftUI
 
 struct Work: Identifiable, Hashable, Decodable {
-    let id: Int
+    let id: Int?
     let imdbId: String?
-    let title: String
-    let year: String
+    let title: String?
+    let year: String?
     let releasedDate: String?
     let genres: String?
     let country: String?
     let awards: String?
-    let type: String
-    let poster: String
+    let type: String?
+    let poster: String?
     let score: Int?
     let plot: String?
-    let duration: Int?
+    let duration: String?
     let directors: String?
     let writers: String?
     let actors: String?
     let media: Media?
     let comments: [Comment]?
     
-    var image: Image {
-        Image(poster)
+    var image: Image? {
+        if let newPoster = self.poster {
+            return Image(newPoster)
+        }
+        return nil
     }
     
     func getDuration() -> String {

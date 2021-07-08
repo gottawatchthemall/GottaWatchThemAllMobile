@@ -31,7 +31,6 @@ struct RegisterView: View {
                 AuthService().register(userAuth: userAuth) { response in
                     if(response != nil) {
                         isRegisterActive = false;
-                        print("Tu es enregistré !")
                     } else {
                         //afficher une erreur
                         print("Erreur lors du register")

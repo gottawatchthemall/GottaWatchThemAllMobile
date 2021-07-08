@@ -17,7 +17,11 @@ struct WorkDetailsView: View {
     
     init(work: Work) {
         self.work = work
-        imageLoader = ImageLoader(urlString: work.poster)
+        if let poster = work.poster {
+            imageLoader = ImageLoader(urlString: poster)
+        } else {
+            imageLoader = ImageLoader(urlString: "")
+        }
         
         UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont(name: "PokemonSolidNormal", size: 32)!]
 
@@ -70,7 +74,7 @@ struct WorkDetailsView: View {
                         }
                 }
             }
-            .navigationBarTitle(Text(work.title))
+            .navigationBarTitle(Text(work.title ?? ""))
             
     }
 }

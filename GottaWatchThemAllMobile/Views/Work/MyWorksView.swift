@@ -14,7 +14,12 @@ struct WorkRow: View {
     
     init(work: Work) {
         self.work = work
-        imageLoader = ImageLoader(urlString: work.poster)
+        if let poster = work.poster {
+            imageLoader = ImageLoader(urlString: poster)
+        } else {
+            imageLoader = ImageLoader(urlString: "")
+        }
+        
     }
     
     var body: some View {
@@ -28,11 +33,11 @@ struct WorkRow: View {
                             }
             VStack {
                 HStack {
-                    Text(work.title)
+                    Text(work.title ?? "")
                     Spacer()
                 }
                 HStack {
-                    Text(work.type)
+                    Text(work.type ?? "")
                     Spacer()
                 }
             }
@@ -47,7 +52,7 @@ struct MyWorksView: View {
     func loadMyWatchedWorks() {
         WorkService().findMyWatchedWorks() { watchedWorks in
             if let newWorks = watchedWorks {
-                works.append(contentsOf: newWorks)
+                works = newWorks
             }
         }
     }

@@ -20,10 +20,10 @@ struct WorkResponse: Identifiable, Hashable, Decodable {
     let poster: String?
     let score: Int?
     let plot: String?
-    let duration: Int?
+    let duration: String?
     let directors: String?
     let writers: String?
     let actors: String?
     let media: Media?
-    let comments: [Comment]?    
+    let comments: [Comment]?
 }

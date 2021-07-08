@@ -38,7 +38,12 @@ struct SearchWorkRow: View {
     
     init(work: Work) {
         self.work = work
-        imageLoader = ImageLoader(urlString: work.poster)
+        if let poster = work.poster {
+            imageLoader = ImageLoader(urlString: poster)
+        } else {
+            imageLoader = ImageLoader(urlString: "")
+        }
+        
     }
     
     var body: some View {
@@ -52,11 +57,11 @@ struct SearchWorkRow: View {
                             }
             VStack {
                 HStack {
-                    Text(work.title)
+                    Text(work.title ?? "")
                     Spacer()
                 }
                 HStack {
-                    Text(work.type)
+                    Text(work.type ?? "")
                     Spacer()
                 }
             }
@@ -116,7 +121,7 @@ struct SearchWorkView: View {
                     .foregroundColor(Color(.systemBlue))
                 }
                 List {
-                    ForEach(works.filter{$0.title.hasPrefix(searchText) || searchText == ""}, id:\.self) {
+                    ForEach(works.filter{($0.title ?? "").hasPrefix(searchText) || searchText == ""}, id:\.self) {
                         SearchWorkRow(work: $0)
                     }
                 }

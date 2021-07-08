@@ -24,19 +24,10 @@ class MyHttpService {
         }
         
         URLSession.shared.dataTask(with: request) { data, response, error in
-            print(data)
-            let json = String(data: data!, encoding: String.Encoding.utf8)
-            print("Failure Response: \(json)")
             
             guard let data = data else {
                 callback(nil)
                 return
-            }
-            do {
-                try JSONDecoder().decode(T.self, from: data)
-                print("bonjour")
-            } catch let jsonError as NSError {
-                print("JSON decode failed: \(jsonError.localizedDescription)")
             }
             
             if let decodedResponse = try? JSONDecoder().decode(T.self, from: data) {
