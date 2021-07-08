@@ -11,20 +11,34 @@ class MyHttpService {
     
     static let serverUrl: String = "http://localhost:8080/api"
     
-    static func get <T: Decodable>(path: String, callback: @escaping (_ data: T?) -> Void) {
+    static func get <T: Decodable>(path: String, responseType: T.Type,  callback: @escaping (_ data: T?) -> Void) {
         guard let url = URL(string: "\(serverUrl)\(path)") else {
             callback(nil)
             return
         }
+        let defaults = UserDefaults.standard
+        var request = URLRequest(url: url)
         
-        let request = URLRequest(url: url)
-        //request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        if let jwt = defaults.string(forKey: "jwt") {
+            request.addValue("Bearer \(jwt)", forHTTPHeaderField: "Authorization")
+        }
+        
         URLSession.shared.dataTask(with: request) { data, response, error in
+            print(data)
+            let json = String(data: data!, encoding: String.Encoding.utf8)
+            print("Failure Response: \(json)")
             
             guard let data = data else {
                 callback(nil)
                 return
             }
+            do {
+                try JSONDecoder().decode(T.self, from: data)
+                print("bonjour")
+            } catch let jsonError as NSError {
+                print("JSON decode failed: \(jsonError.localizedDescription)")
+            }
+            
             if let decodedResponse = try? JSONDecoder().decode(T.self, from: data) {
                 DispatchQueue.main.async {
                     callback(decodedResponse)
@@ -42,17 +56,21 @@ class MyHttpService {
            callback(nil)
             return
         }
-        
+        let defaults = UserDefaults.standard
         var request = URLRequest(url: url)
         
         request.setValue("application/json", forHTTPHeaderField: "Accept")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "POST"
         let bodyToSend = try? JSONEncoder().encode(body)
+        
         request.httpBody = bodyToSend
-        //request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
+        if let jwt = defaults.string(forKey: "jwt") {
+            request.addValue("Bearer \(jwt)", forHTTPHeaderField: "Authorization")
+        }
+        
         URLSession.shared.dataTask(with: request) { data, response, error in
-            
             guard let data = data else {
                 callback(nil)
                 return
@@ -67,28 +85,5 @@ class MyHttpService {
             
         }.resume()
     }
-    
-    //    static func get(path: String) -> Void {
-    //        let url = URL(string: path)
-    //        var request = URLRequest(url: url!)
-    //        request.httpMethod = "GET"
-    //
-    //        let session = URLSession.shared
-    //        let task = session.dataTask(with: request) { (data, response, error) in
-    //
-    //            if error != nil {
-    //                // Handle HTTP request error
-    //                print("error")
-    //            } else if data != nil {
-    //                print("ca fonctionne")
-    //                // Handle HTTP request response
-    //            } else {
-    //                // Handle unexpected error
-    //            }
-    //        }
-    //
-    //        task.resume()
-    //
-    //    }
     
 }

@@ -14,6 +14,7 @@ struct RegisterView: View {
     @State var email: String = ""
     
     @Binding var isRegisterActive: Bool
+
     
     var body: some View {
         VStack {
@@ -24,19 +25,20 @@ struct RegisterView: View {
             PasswordFieldView(value: $password)
             Spacer()
             Button(action: {
-                print("Trying to register !")
+                
                 let userAuth = UserAuth(username: username, email: email, password: password)
-                MyHttpService.post(path: "/auth/signup", body: userAuth,
-                                   requestType: UserAuth.self,
-                                   responseType: MessageResponse.self
-                ) { response in
-                    //navigate to register if succeed
-                    isRegisterActive = false;
-                    print(response ?? "Error")
+
+                AuthService().register(userAuth: userAuth) { response in
                     if(response != nil) {
-                        print("Registered !")
+                        isRegisterActive = false;
+                        print("Tu es enregistré !")
+                    } else {
+                        //afficher une erreur
+                        print("Erreur lors du register")
                     }
+                    
                 }
+                
             }) {
                 SimpleButtonView(buttonTitle: "Validate", buttonColor: Color("BlackPokeball"))
             }

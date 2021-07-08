@@ -27,13 +27,18 @@ struct RegularComment: View{
     var body: some View {
         VStack {
             HStack {
-                Text("\(comment.userId)").underline()
+                if let userId = comment.userId {
+                    Text("\(userId)").underline()
+                }
                 Spacer()
                 Text(Date(), style: .date)
                 
             }
             HStack {
-                Text(comment.content)
+                if let content = comment.content {
+                    Text(content)
+                }
+            
                 Spacer()
             }
         }
@@ -47,9 +52,15 @@ struct BannedComment: View{
     var body: some View {
         VStack {
             HStack {
-                Text("\(comment.userId) banned").italic()
+                if let userId = comment.userId {
+                    Text("\(userId) banned").italic()
+                }
+                
                 Spacer()
-                Text(comment.publishAt, style: .date).italic()
+                if let publishAt = comment.publishAt {
+                    Text(publishAt, style: .date).italic()
+                }
+               
             }
             HStack {
                 Text("Commentaire supprimé").foregroundColor(.red)

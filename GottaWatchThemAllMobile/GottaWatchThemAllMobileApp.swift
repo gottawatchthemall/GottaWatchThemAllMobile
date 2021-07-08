@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct GottaWatchThemAllMobileApp: App {
     
-    @State var isLog = false;
+    @State var isLog = false
     
     var body: some Scene { 
         WindowGroup {

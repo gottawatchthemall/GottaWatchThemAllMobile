@@ -42,15 +42,14 @@ struct WorkRow: View {
 }
 
 struct MyWorksView: View {
-    var works: [Work] = []
+    @State var works: [Work] = []
     
-    init() {
-        works.append(Work(id: 1, title: "Pirate des c", year: "2020", type: "Piraterie", poster:"https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg"))
-        
-        works.append(Work(id: 2, title: "Star wars", year: "2020", type: "PIOU PIOU!", poster:"https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg"))
-        
-        works.append(Work(id: 3, title: "Indiana Jones", year: "2020", type: "Pas le dernier", poster:"https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg"))
-        
+    func loadMyWatchedWorks() {
+        WorkService().findMyWatchedWorks() { watchedWorks in
+            if let newWorks = watchedWorks {
+                works.append(contentsOf: newWorks)
+            }
+        }
     }
     
     var body: some View {
@@ -65,6 +64,8 @@ struct MyWorksView: View {
                         destination: WorkDetailsView(work: work)) {
                         WorkRow(work: work)
                     }
+                }.onAppear() {
+                    loadMyWatchedWorks()
                 }
             }.navigationBarTitle("")
             .navigationBarHidden(true)

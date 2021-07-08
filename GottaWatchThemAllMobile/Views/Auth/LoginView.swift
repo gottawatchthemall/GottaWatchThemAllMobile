@@ -11,20 +11,27 @@ struct LoginView: View {
     
     @State var username: String = ""
     @State var password: String = ""
-    
     @Binding var isLog: Bool
     
     var body: some View {
         
         VStack {
             TitleView(title: "Log in")
-    
+            
             Spacer()
             InputFieldView(name: "Username", value: $username)
             PasswordFieldView(value: $password)
             Spacer()
             Button(action: {
-                    isLog = true
+                
+                let defaults = UserDefaults.standard
+                let userAuth = UserAuth(username: username, email: nil, password: password)
+                AuthService().login(userAuth: userAuth) { response in
+                    if(response != nil) {
+                        defaults.setValue(response?.token, forKey: "jwt")
+                        isLog = true
+                    }
+                }
             }) {
                 SimpleButtonView(buttonTitle: "Validate", buttonColor: Color("RedPokeball"))
             }
