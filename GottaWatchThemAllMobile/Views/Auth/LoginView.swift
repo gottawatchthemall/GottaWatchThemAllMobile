@@ -23,7 +23,7 @@ struct LoginView: View {
             PasswordFieldView(value: $password)
             Spacer()
             Button(action: {
-                
+                print("jai cliquéfrr")
                 let defaults = UserDefaults.standard
                 let userAuth = UserAuth(username: username, email: nil, password: password)
                 AuthService().login(userAuth: userAuth) { response in

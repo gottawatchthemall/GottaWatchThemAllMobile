@@ -35,12 +35,12 @@ struct Work: Identifiable, Hashable, Decodable {
         return nil
     }
     
-    func getDuration() -> String {
-        if duration != nil {
-            return "\(String(describing: duration))"
-        }
-        return "N/A"
-    }
+//    func getDuration() -> String {
+//        if let durationTime = self.duration {
+//            return "\(durationTime)"
+//        }
+//        return "N/A"
+//    }
     
     init(id: Int,
     title: String,

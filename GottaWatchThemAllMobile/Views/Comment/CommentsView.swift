@@ -9,22 +9,32 @@ import SwiftUI
 
 struct CommentsView: View {
     var work: Work
-    var comments: [Comment] = []
+    @State var comments: [Comment] = []
     
     init(work: Work) {
         UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont(name: "PokemonSolidNormal", size: 32)!]
         self.work = work
-        comments.append(Comment(id: 1, content: "Test de commentaire", vulgar: false, userId: 5, workId: 8, publishAt: Date()))
-        comments.append(Comment(id: 2, content: "Commentaire ban", vulgar: true, userId: 6, workId: 8, publishAt: Date()))
-        comments.append(Comment(id: 3, content: "Vraiment bien le film", vulgar: false, userId: 8, workId: 8, publishAt: Date()))
+//        comments.append(Comment(id: 1, content: "Test de commentaire", vulgar: false, userId: 5, workId: 8, publishAt: Date()))
+//        comments.append(Comment(id: 2, content: "Commentaire ban", vulgar: true, userId: 6, workId: 8, publishAt: Date()))
+//        comments.append(Comment(id: 3, content: "Vraiment bien le film", vulgar: false, userId: 8, workId: 8, publishAt: Date()))
     }
     
     var body: some View {
         VStack {
             List(comments) { comment in
                 CommentRow(comment: comment).padding(.bottom, 5)
-                }
+            }.onAppear() {
+                loadComments()
+            }
             }.navigationBarTitle("Commentaires")
+    }
+    
+    func loadComments() {
+        CommentService().getWorkComments(work: self.work) { response in
+            if let workComments = response {
+                self.comments = workComments
+            }
+        }
     }
 }
 

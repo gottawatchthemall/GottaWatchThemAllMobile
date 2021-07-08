@@ -19,6 +19,7 @@ class MyHttpService {
         let defaults = UserDefaults.standard
         var request = URLRequest(url: url)
         
+        
         if let jwt = defaults.string(forKey: "jwt") {
             request.addValue("Bearer \(jwt)", forHTTPHeaderField: "Authorization")
         }
@@ -29,6 +30,17 @@ class MyHttpService {
                 callback(nil)
                 return
             }
+            
+//            let json = String(data: data, encoding: String.Encoding.utf8)
+//            print("Failure Response: \(json)")
+//
+//
+//
+//            do {
+//                try JSONDecoder().decode(T.self, from: data)
+//            } catch let jsonError as NSError {
+//                print("JSON decode failed: \(jsonError.localizedDescription)")
+//            }
             
             if let decodedResponse = try? JSONDecoder().decode(T.self, from: data) {
                 DispatchQueue.main.async {

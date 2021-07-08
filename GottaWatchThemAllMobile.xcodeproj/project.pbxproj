@@ -17,6 +17,7 @@
 		891C9508267250040020D788 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891C9507267250040020D788 /* LoginView.swift */; };
 		891C950A267250110020D788 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891C9509267250110020D788 /* RegisterView.swift */; };
 		891C950E267257C50020D788 /* SimpleButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891C950D267257C50020D788 /* SimpleButtonView.swift */; };
+		891FBA9526978A4900E92354 /* CommentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891FBA9426978A4900E92354 /* CommentService.swift */; };
 		896159DB26973DFB00FC63B2 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896159DA26973DFB00FC63B2 /* AuthService.swift */; };
 		896159DD26973EEC00FC63B2 /* SigninResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896159DC26973EEC00FC63B2 /* SigninResponse.swift */; };
 		89776E0A26948272002DCE8F /* MessageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89776E0926948272002DCE8F /* MessageResponse.swift */; };
@@ -52,6 +53,7 @@
 		891C9507267250040020D788 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		891C9509267250110020D788 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		891C950D267257C50020D788 /* SimpleButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleButtonView.swift; sourceTree = "<group>"; };
+		891FBA9426978A4900E92354 /* CommentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentService.swift; sourceTree = "<group>"; };
 		896159DA26973DFB00FC63B2 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		896159DC26973EEC00FC63B2 /* SigninResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninResponse.swift; sourceTree = "<group>"; };
 		89776E0926948272002DCE8F /* MessageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageResponse.swift; sourceTree = "<group>"; };
@@ -92,7 +94,6 @@
 		201F8C682690C2F900B7D03E /* Work */ = {
 			isa = PBXGroup;
 			children = (
-				89FE0149269753BC00102CF0 /* WorkService.swift */,
 				89863C872673892500AE8D04 /* WorkDetailsView.swift */,
 				89FCF46A267281CC002047AC /* MyWorksView.swift */,
 			);
@@ -106,6 +107,17 @@
 				209CBF7226935FBC00913830 /* CommentRow.swift */,
 			);
 			path = Comment;
+			sourceTree = "<group>";
+		};
+		891FBA9326978A0C00E92354 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				896159DA26973DFB00FC63B2 /* AuthService.swift */,
+				89FE0149269753BC00102CF0 /* WorkService.swift */,
+				202C317B2689EEBC00D1081E /* HttpService.swift */,
+				891FBA9426978A4900E92354 /* CommentService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		89863C7D26736B5B00AE8D04 /* Views */ = {
@@ -125,7 +137,6 @@
 		89863C7E26736BDE00AE8D04 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				896159DA26973DFB00FC63B2 /* AuthService.swift */,
 				89FCF459267277FF002047AC /* PasswordFieldView.swift */,
 				89863C792673500300AE8D04 /* LogButtonView.swift */,
 				891C9509267250110020D788 /* RegisterView.swift */,
@@ -178,6 +189,7 @@
 		89F025A2266E107F006029DC /* GottaWatchThemAllMobile */ = {
 			isa = PBXGroup;
 			children = (
+				891FBA9326978A0C00E92354 /* Services */,
 				89863C8226736D5300AE8D04 /* Models */,
 				89863C7D26736B5B00AE8D04 /* Views */,
 				89FCF45D26727C07002047AC /* Pokemon-font */,
@@ -185,7 +197,6 @@
 				89F025A7266E1083006029DC /* Assets.xcassets */,
 				89F025AC266E1083006029DC /* Info.plist */,
 				89F025A9266E1083006029DC /* Preview Content */,
-				202C317B2689EEBC00D1081E /* HttpService.swift */,
 				201F8C6E2690DA2100B7D03E /* ImageLoader.swift */,
 				201F8C722690DC4B00B7D03E /* AsyncImage.swift */,
 			);
@@ -282,6 +293,7 @@
 			files = (
 				89FCF46526728042002047AC /* TitleView.swift in Sources */,
 				89FCF469267281BC002047AC /* SearchUserView.swift in Sources */,
+				891FBA9526978A4900E92354 /* CommentService.swift in Sources */,
 				209CBF6C2693486E00913830 /* CommentsView.swift in Sources */,
 				89863C862673775B00AE8D04 /* Work.swift in Sources */,
 				89776E0A26948272002DCE8F /* MessageResponse.swift in Sources */,

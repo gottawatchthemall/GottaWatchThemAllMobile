@@ -38,7 +38,7 @@ struct RegularComment: View{
                 if let content = comment.content {
                     Text(content)
                 }
-            
+                
                 Spacer()
             }
         }
@@ -58,9 +58,10 @@ struct BannedComment: View{
                 
                 Spacer()
                 if let publishAt = comment.publishAt {
-                    Text(publishAt, style: .date).italic()
+                    //Text(publishAt, style: .date).italic()
+                    Text(publishAt)
                 }
-               
+                
             }
             HStack {
                 Text("Commentaire supprimé").foregroundColor(.red)
@@ -73,6 +74,8 @@ struct BannedComment: View{
 struct CommentRow_Previews: PreviewProvider {
     static var previews: some View {
         CommentRow(comment:
-                    Comment(id: 1, content: "Test de commentaire", vulgar: false, userId: 5, workId: 8, publishAt: Date()))
+                    Comment(id: 1, content: "Test de commentaire", vulgar: false, userId: 5, workId: 8, publishAt: "ajourdhui")
+        )
+        
     }
 }

@@ -30,7 +30,7 @@ struct WorkDetailsView: View {
     var body: some View {
         
             VStack {
-                Text("durée : \(work.getDuration())" )
+                Text("durée : \(work.duration ?? "N/A")" )
                 Spacer()
                 HStack {
                     Text("Réalisateur :")
