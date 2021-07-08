@@ -58,7 +58,6 @@ struct BannedComment: View{
                 
                 Spacer()
                 if let publishAt = comment.publishAt {
-                    //Text(publishAt, style: .date).italic()
                     Text(publishAt)
                 }
                 

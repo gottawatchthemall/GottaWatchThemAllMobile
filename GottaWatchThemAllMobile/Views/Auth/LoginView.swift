@@ -22,7 +22,7 @@ struct LoginView: View {
             InputFieldView(name: "Username", value: $username)
             PasswordFieldView(value: $password)
             Spacer()
-            Button(action: {
+            SimpleButtonView(buttonTitle: "Validate", buttonColor: Color("RedPokeball")) {
                 print("jai cliquéfrr")
                 let defaults = UserDefaults.standard
                 let userAuth = UserAuth(username: username, email: nil, password: password)
@@ -32,9 +32,8 @@ struct LoginView: View {
                         isLog = true
                     }
                 }
-            }) {
-                SimpleButtonView(buttonTitle: "Validate", buttonColor: Color("RedPokeball"))
             }
+            
             Spacer()
         }
     }

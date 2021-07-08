@@ -14,7 +14,7 @@ struct RegisterView: View {
     @State var email: String = ""
     
     @Binding var isRegisterActive: Bool
-
+    
     
     var body: some View {
         VStack {
@@ -24,10 +24,9 @@ struct RegisterView: View {
             InputFieldView(name: "Username", value: $username)
             PasswordFieldView(value: $password)
             Spacer()
-            Button(action: {
-                
+            SimpleButtonView(buttonTitle: "Validate", buttonColor: Color("BlackPokeball")) {
                 let userAuth = UserAuth(username: username, email: email, password: password)
-
+                
                 AuthService().register(userAuth: userAuth) { response in
                     if(response != nil) {
                         isRegisterActive = false;
@@ -37,10 +36,8 @@ struct RegisterView: View {
                     }
                     
                 }
-                
-            }) {
-                SimpleButtonView(buttonTitle: "Validate", buttonColor: Color("BlackPokeball"))
             }
+            
             Spacer()
         }
     }
