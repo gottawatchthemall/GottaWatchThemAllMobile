@@ -18,6 +18,7 @@
 		891C950A267250110020D788 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891C9509267250110020D788 /* RegisterView.swift */; };
 		891C950E267257C50020D788 /* SimpleButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891C950D267257C50020D788 /* SimpleButtonView.swift */; };
 		891FBA9526978A4900E92354 /* CommentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891FBA9426978A4900E92354 /* CommentService.swift */; };
+		894B297B26988DF5007B3CE5 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894B297A26988DF5007B3CE5 /* UserService.swift */; };
 		896159DB26973DFB00FC63B2 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896159DA26973DFB00FC63B2 /* AuthService.swift */; };
 		896159DD26973EEC00FC63B2 /* SigninResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896159DC26973EEC00FC63B2 /* SigninResponse.swift */; };
 		89776E0A26948272002DCE8F /* MessageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89776E0926948272002DCE8F /* MessageResponse.swift */; };
@@ -54,6 +55,7 @@
 		891C9509267250110020D788 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		891C950D267257C50020D788 /* SimpleButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleButtonView.swift; sourceTree = "<group>"; };
 		891FBA9426978A4900E92354 /* CommentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentService.swift; sourceTree = "<group>"; };
+		894B297A26988DF5007B3CE5 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		896159DA26973DFB00FC63B2 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		896159DC26973EEC00FC63B2 /* SigninResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninResponse.swift; sourceTree = "<group>"; };
 		89776E0926948272002DCE8F /* MessageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageResponse.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 		201F8C682690C2F900B7D03E /* Work */ = {
 			isa = PBXGroup;
 			children = (
+				89FCF466267281A2002047AC /* SearchWorkView.swift */,
 				89863C872673892500AE8D04 /* WorkDetailsView.swift */,
 				89FCF46A267281CC002047AC /* MyWorksView.swift */,
 			);
@@ -116,6 +119,7 @@
 				89FE0149269753BC00102CF0 /* WorkService.swift */,
 				202C317B2689EEBC00D1081E /* HttpService.swift */,
 				891FBA9426978A4900E92354 /* CommentService.swift */,
+				894B297A26988DF5007B3CE5 /* UserService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -129,7 +133,6 @@
 				89863C7E26736BDE00AE8D04 /* Auth */,
 				89FCF46226727EE3002047AC /* HomeView.swift */,
 				89FCF468267281BC002047AC /* SearchUserView.swift */,
-				89FCF466267281A2002047AC /* SearchWorkView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				201F8C732690DC4B00B7D03E /* AsyncImage.swift in Sources */,
 				891C9508267250040020D788 /* LoginView.swift in Sources */,
 				89F025A4266E107F006029DC /* GottaWatchThemAllMobileApp.swift in Sources */,
+				894B297B26988DF5007B3CE5 /* UserService.swift in Sources */,
 				891C950E267257C50020D788 /* SimpleButtonView.swift in Sources */,
 				896159DD26973EEC00FC63B2 /* SigninResponse.swift in Sources */,
 				89A00A302697694D00DFEAD8 /* WorkResponse.swift in Sources */,

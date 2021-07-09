@@ -17,7 +17,6 @@ class CommentService {
                 callback(response)
             }
         }
-        callback(nil)
     }
     
 }

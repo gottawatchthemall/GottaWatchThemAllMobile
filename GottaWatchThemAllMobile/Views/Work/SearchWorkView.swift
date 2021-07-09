@@ -35,15 +35,37 @@ struct SearchWorkRow: View {
     @ObservedObject var imageLoader:ImageLoader
     @State var image:UIImage = UIImage()
     var work: Work
+    @State var myWorks: [Work]
     
-    init(work: Work) {
+    func containWork() -> Bool {
+        return myWorks.first(where: { $0.imdbId == work.imdbId }) != nil
+    }
+    
+    init(work: Work, myWorks: [Work]) {
         self.work = work
+        self.myWorks = myWorks
+        
         if let poster = work.poster {
             imageLoader = ImageLoader(urlString: poster)
         } else {
             imageLoader = ImageLoader(urlString: "")
         }
         
+    }
+    
+    func addWork(imdbId: String) {
+        UserService().addWatchedWork(imdbId: imdbId) { response in
+            print(response) // should be the work added
+            //doit faire disparaitre le bouton +
+            if let newWork = response {
+                myWorks.append(newWork)
+            }
+            
+        }
+    }
+    
+    func removeWork(imdbId: String) {
+        //remove le user work
     }
     
     var body: some View {
@@ -66,27 +88,65 @@ struct SearchWorkRow: View {
                 }
             }
             
-            Button("yo") {
-                
+            if(containWork() == false) {
+                Button {
+                    //ici faire la requête
+                    if let imdbId = work.imdbId {
+                        addWork(imdbId: imdbId)
+                    }
+                    
+                } label: {
+                    Image(systemName: "plus.square.fill")
+                }
+            } else {
+                Button {
+                    //ici faire la requête de suppression
+                    if let imdbId = work.imdbId {
+                        removeWork(imdbId: imdbId)
+                    }
+                    
+                } label: {
+                    Image(systemName: "minus.square.fill")
+                }
             }
+            
+
             Spacer()
         }
     }
 }
 
 struct SearchWorkView: View {
-    var works: [Work] = []
+    @State var works: [Work] = []
     @State var showCancelButton = false
     @State var searchText = ""
+    @State var myWorks: [Work] = []
     
-    init() {
-        works.append(Work(id: 1, title: "Pirate des c", year: "2020", type: "Piraterie", poster:"https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg"))
-        
-        works.append(Work(id: 2, title: "Star wars", year: "2020", type: "PIOU PIOU!", poster:"https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg"))
-        
-        works.append(Work(id: 3, title: "Indiana Jones", year: "2020", type: "Pas le dernier", poster:"https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg"))
+    
+    
+//    init() {
+//        works.append(Work(id: 1, title: "Pirate des c", year: "2020", type: "Piraterie", poster:"https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg"))
+//
+//        works.append(Work(id: 2, title: "Star wars", year: "2020", type: "PIOU PIOU!", poster:"https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg"))
+//
+//        works.append(Work(id: 3, title: "Indiana Jones", year: "2020", type: "Pas le dernier", poster:"https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg"))
+//    }
+    
+    func loadMyWatchedWorks() {
+        WorkService().findMyWatchedWorks() { watchedWorks in
+            if let newWorks = watchedWorks {
+                myWorks = newWorks
+            }
+        }
     }
     
+    func findWorksByTitle(title: String) {
+        WorkService().searchWorkByTitle(title: title) { response in
+            if let allWorks = response {
+                self.works = allWorks
+            }
+        }
+    }
     
     var body: some View {
         NavigationView {
@@ -99,6 +159,9 @@ struct SearchWorkView: View {
                         self.showCancelButton = true
                     }, onCommit: {
                         print("onCommit")
+                        loadMyWatchedWorks()
+                        //requete à appeler ici
+                        findWorksByTitle(title: searchText)
                     }).foregroundColor(.primary)
 
                     Button(action: {
@@ -117,13 +180,16 @@ struct SearchWorkView: View {
                             UIApplication.shared.endEditing(true) // this must be placed before the other commands here
                             self.searchText = ""
                             self.showCancelButton = false
+                            self.works = []
+                        
                     }
                     .foregroundColor(Color(.systemBlue))
                 }
-                List {
-                    ForEach(works.filter{($0.title ?? "").hasPrefix(searchText) || searchText == ""}, id:\.self) {
-                        SearchWorkRow(work: $0)
-                    }
+                
+                List (self.works, id: \.imdbId) { work in
+                    //ForEach(works.filter{($0.title ?? "").hasPrefix(searchText) || searchText == ""}, id:\.self) {
+                    SearchWorkRow(work: work, myWorks: myWorks)
+                    //}
                 }
                 .navigationBarTitle(Text("Search"))
                 .resignKeyboardOnDragGesture()

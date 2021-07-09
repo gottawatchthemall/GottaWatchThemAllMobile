@@ -15,4 +15,10 @@ class WorkService {
         }
     }
     
+    func searchWorkByTitle(title: String, callback: @escaping (_ response: [Work]?) -> Void) -> Void {
+        MyHttpService.get(path: "/works/moviedb/\(title)", responseType: [Work].self) { response in
+            callback(response)
+        }
+    }
+    
 }

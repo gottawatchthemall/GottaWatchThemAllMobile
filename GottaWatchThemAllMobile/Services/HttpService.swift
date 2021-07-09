@@ -74,6 +74,44 @@ class MyHttpService {
         }
         
         URLSession.shared.dataTask(with: request) { data, response, error in
+
+            guard let data = data else {
+                callback(nil)
+                return
+            }
+            if let decodedResponse = try? JSONDecoder().decode(T.self, from: data) {
+                DispatchQueue.main.async {
+                    callback(decodedResponse)
+                }
+            } else {
+                callback(nil)
+            }
+            
+        }.resume()
+    }
+    
+    static func put <T: Decodable, R: Codable>(path: String, body: R, requestType: R.Type,
+                                                responseType: T.Type, callback: @escaping (_ data: T?) -> Void) {
+        guard let url = URL(string: "\(serverUrl)\(path)") else {
+           callback(nil)
+            return
+        }
+        let defaults = UserDefaults.standard
+        var request = URLRequest(url: url)
+        
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = "PUT"
+        let bodyToSend = try? JSONEncoder().encode(body)
+        
+        request.httpBody = bodyToSend
+        
+        if let jwt = defaults.string(forKey: "jwt") {
+            request.addValue("Bearer \(jwt)", forHTTPHeaderField: "Authorization")
+        }
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+
             guard let data = data else {
                 callback(nil)
                 return
