@@ -27,8 +27,8 @@ struct RegularComment: View{
     var body: some View {
         VStack {
             HStack {
-                if let userId = comment.userId {
-                    Text("\(userId)").underline()
+                if let username = comment.username {
+                    Text("\(username)").underline()
                 }
                 Spacer()
                 Text(Date(), style: .date)
@@ -52,8 +52,8 @@ struct BannedComment: View{
     var body: some View {
         VStack {
             HStack {
-                if let userId = comment.userId {
-                    Text("\(userId) banned").italic()
+                if let username = comment.username {
+                    Text("\(username) banned").italic()
                 }
                 
                 Spacer()

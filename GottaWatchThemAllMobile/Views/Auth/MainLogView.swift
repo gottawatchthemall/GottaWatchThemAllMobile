@@ -17,11 +17,14 @@ struct MainLogView: View {
             
             VStack {
                 LoginView(isLog: $isLog)
+                
+                
                 NavigationLink(
                     destination: RegisterView(isRegisterActive: $isRegisterViewActive),
                     isActive: $isRegisterViewActive,
                     label: {
-                        SimpleButtonView(buttonTitle: "New account", buttonColor: Color("BlackPokeball"))
+                        Text("New account")
+                            .appButton(buttonWidth: 220, buttonHeight: 60, buttonColor: Color("BlackPokeball"))
                     })
             }
         }
