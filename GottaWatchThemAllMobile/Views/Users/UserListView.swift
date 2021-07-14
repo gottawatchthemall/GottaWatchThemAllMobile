@@ -106,11 +106,11 @@ struct UserListView: View {
     }
     
     func findUsersByTitle(title: String) {
-//        UserService().searchUsersByTitle(title: title) { response in
-//            if let allUsers = response {
-//                self.users = allUsers
-//            }
-//        }
+        UserService().searchUsersByTitle(title: title) { response in
+            if let allUsers = response {
+                self.users = allUsers
+            }
+        }
     }
 
     
