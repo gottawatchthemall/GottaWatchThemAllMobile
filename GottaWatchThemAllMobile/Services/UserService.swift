@@ -15,4 +15,10 @@ class UserService {
             }
     }
     
+    func searchUsersByTitle(title: String, callback: @escaping (_ response: [UserResponse]?) -> Void) -> Void {
+        MyHttpService.get(path: "/user/search/name/\(title)", responseType: [UserResponse].self) { response in
+            callback(response)
+        }
+    }
+    
 }

@@ -35,7 +35,7 @@ struct SearchWorkRow: View {
     @ObservedObject var imageLoader:ImageLoader
     @State var image:UIImage = UIImage()
     var work: Work
-    @State var myWorks: [Work]
+    @State var myWorks: [Work] = []
     
     func containWork() -> Bool {
         return myWorks.first(where: { $0.imdbId == work.imdbId }) != nil
@@ -43,13 +43,13 @@ struct SearchWorkRow: View {
     
     init(work: Work, myWorks: [Work]) {
         self.work = work
-        self.myWorks = myWorks
-        
+    
         if let poster = work.poster {
             imageLoader = ImageLoader(urlString: poster)
         } else {
             imageLoader = ImageLoader(urlString: "")
         }
+        self.myWorks = myWorks
         
     }
     
@@ -122,15 +122,6 @@ struct SearchWorkView: View {
     @State var searchText = ""
     @State var myWorks: [Work] = []
     
-    
-    
-//    init() {
-//        works.append(Work(id: 1, title: "Pirate des c", year: "2020", type: "Piraterie", poster:"https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg"))
-//
-//        works.append(Work(id: 2, title: "Star wars", year: "2020", type: "PIOU PIOU!", poster:"https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg"))
-//
-//        works.append(Work(id: 3, title: "Indiana Jones", year: "2020", type: "Pas le dernier", poster:"https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg"))
-//    }
     
     func loadMyWatchedWorks() {
         WorkService().findMyWatchedWorks() { watchedWorks in

@@ -47,36 +47,68 @@ struct WorkRow: View {
 }
 
 struct MyWorksView: View {
-    @State var works: [Work] = []
     
-    func loadMyWatchedWorks() {
-        WorkService().findMyWatchedWorks() { watchedWorks in
-            if let newWorks = watchedWorks {
-                works = newWorks
-            }
-        }
-    }
+    @State var works: [Work] = []
     
     var body: some View {
         
         NavigationView {
-            VStack {
-                TitleView(title: "Watched works")
-        
-                
-                List(works) { work in
-                    NavigationLink(
-                        destination: WorkDetailsView(work: work)) {
-                        WorkRow(work: work)
-                    }
-                }.onAppear() {
-                    loadMyWatchedWorks()
-                }
-            }.navigationBarTitle("")
-            .navigationBarHidden(true)
+            WorksView(title: "Watched Works")
         }
         
     }
+}
+
+struct WorksView: View {
+    
+    var title: String
+    var user: UserResponse?
+    var displayBack = false;
+    
+    @State var works: [Work] = []
+    
+    func loadMyWatchedWorks() {
+        if user == nil {
+            WorkService().findMyWatchedWorks() { watchedWorks in
+                if let newWorks = watchedWorks {
+                    works = newWorks
+                }
+            }
+        } else {
+            if let userId = user?.id {
+                WorkService().findUserWatchedWorks(userId: userId) { watchedWorks in
+                    if let newWorks = watchedWorks {
+                        works = newWorks
+                    }
+                }
+            } else {
+                //TODO display erreur
+            }
+            
+        }
+    }
+    
+    var body: some View {
+        VStack {
+            if(displayBack == false) {
+                TitleView(title: title)
+            }
+            
+            List(works) { work in
+                NavigationLink(
+                    destination: WorkDetailsView(work: work)) {
+                    WorkRow(work: work)
+                }
+            }.onAppear() {
+                loadMyWatchedWorks()
+            }
+        }.navigationBarTitle(displayBack ? title : "")
+        .navigationBarHidden(!displayBack)
+        .onAppear() {
+            UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont(name: "PokemonSolidNormal", size: 32)!]
+        }
+    }
+    
 }
 
 struct MyWorksView_Previews: PreviewProvider {
