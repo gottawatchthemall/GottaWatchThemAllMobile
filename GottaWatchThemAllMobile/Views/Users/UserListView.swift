@@ -60,10 +60,10 @@ struct UserListView: View {
                         self.showCancelButton = true
                     }, onCommit: {
                         //requete à appeler ici
-                        users.append(UserResponse(id: 0, name: "jamso", email: "jam@mail.fr", vulgar: true))
-                        users.append(UserResponse(id: 1, name: "Masa", email: "msa@mail.fr", vulgar: false))
-                        users.append(UserResponse(id: 2, name: "Jerem", email: "terter@mail.fr", vulgar: false))
-                        users.append(UserResponse(id: 0, name: "popo", email: "lucapopo@mail.fr", vulgar: true))
+//                        users.append(UserResponse(id: 0, name: "jamso", email: "jam@mail.fr", vulgar: true))
+//                        users.append(UserResponse(id: 1, name: "Masa", email: "msa@mail.fr", vulgar: false))
+//                        users.append(UserResponse(id: 2, name: "Jerem", email: "terter@mail.fr", vulgar: false))
+//                        users.append(UserResponse(id: 0, name: "popo", email: "lucapopo@mail.fr", vulgar: true))
                         findUsersByTitle(title: searchText)
                     }).foregroundColor(.primary)
 

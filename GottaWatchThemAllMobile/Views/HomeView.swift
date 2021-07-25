@@ -26,7 +26,7 @@ struct HomeView: View {
                         Image(systemName: "magnifyingglass")
                     }
                 
-                SearchUserView()
+                UserListView()
                     .tabItem {
                         Text("Users")
                         Image(systemName: "person.crop.rectangle")

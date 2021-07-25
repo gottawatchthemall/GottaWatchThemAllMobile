@@ -12,17 +12,18 @@ struct LoaderView: View {
     var isLoading: Bool
     
     var body: some View {
-        Color(.gray).ignoresSafeArea().opacity(0.8)
-        Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-            VStack {
-                Text("Chargement en cours").padding(5).foregroundColor(Color.black)
-                ProgressView().progressViewStyle(CircularProgressViewStyle(tint: Color.black))
-                 .scaleEffect(2)
-            }
-        }).frame(width: 220, height: 100)
-        .background(Color("RedPokeball"))
-        .cornerRadius(15.0)
-        
+        if(isLoading) {
+            Color(.gray).ignoresSafeArea().opacity(0.8)
+            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                VStack {
+                    Text("Chargement en cours").padding(5).foregroundColor(Color.black)
+                    ProgressView().progressViewStyle(CircularProgressViewStyle(tint: Color.black))
+                        .scaleEffect(2)
+                }
+            }).frame(width: 220, height: 100)
+            .background(Color("RedPokeball"))
+            .cornerRadius(15.0)
+        }
     }
 }
 

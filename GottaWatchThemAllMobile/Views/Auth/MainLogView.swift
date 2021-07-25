@@ -10,24 +10,30 @@ import SwiftUI
 struct MainLogView: View {
     
     @Binding var isLog: Bool
-    @State var isRegisterViewActive = false;
+    @State var isRegisterViewActive = false
+    @State var isLoading = false
     
     var body: some View {
-        NavigationView {
-            
-            VStack {
-                LoginView(isLog: $isLog)
+        ZStack {
+            NavigationView {
                 
-                
-                NavigationLink(
-                    destination: RegisterView(isRegisterActive: $isRegisterViewActive),
-                    isActive: $isRegisterViewActive,
-                    label: {
-                        Text("New account")
-                            .appButton(buttonWidth: 220, buttonHeight: 60, buttonColor: Color("BlackPokeball"))
-                    })
+                VStack {
+                    LoginView(isLog: $isLog, isLoading: $isLoading)
+                    
+                    
+                    NavigationLink(
+                        destination: RegisterView(isRegisterActive: $isRegisterViewActive),
+                        isActive: $isRegisterViewActive,
+                        label: {
+                            Text("New account")
+                                .appButton(buttonWidth: 220, buttonHeight: 60, buttonColor: Color("BlackPokeball"))
+                        }).disabled(isLoading)
+                }
             }
+            
+            LoaderView(isLoading: isLoading)
         }
+        
     }
 }
 
