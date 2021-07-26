@@ -69,6 +69,7 @@ struct WorksView: View {
     @Binding var isLoading: Bool
     
     @State var works: [Work] = []
+    @State var myWorks: [Work] = []
     
     func loadMyWatchedWorks() {
         isLoading = true
@@ -85,11 +86,20 @@ struct WorksView: View {
                         works = newWorks
                     }
                 }
+                WorkService().findMyWatchedWorks() { watchedWorks in
+                    if let newWorks = watchedWorks {
+                        myWorks = newWorks
+                    }
+                }
             } else {
                 //TODO display erreur
             }
         }
         isLoading = false
+    }
+    
+    func notAlreadyHaveWork(work: Work) -> Bool {
+        return user != nil && myWorks.first(where: { $0.imdbId == work.imdbId }) == nil
     }
     
     var body: some View {
@@ -98,9 +108,9 @@ struct WorksView: View {
                 TitleView(title: title)
             }
             
-            List(works) { work in
+            List(works) { work in //comment je sais si j'ai le work ou pas ?
                 NavigationLink(
-                    destination: WorkDetailsView(work: work, canDelete: isMine)) {
+                    destination: WorkDetailsView(work: work, canDelete: isMine, canAdd: notAlreadyHaveWork(work: work))) {
                     WorkRow(work: work)
                 }
             }.onAppear() {

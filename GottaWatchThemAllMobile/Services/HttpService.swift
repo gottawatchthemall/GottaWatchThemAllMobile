@@ -127,4 +127,25 @@ class MyHttpService {
         }.resume()
     }
     
+    static func delete(path: String, callback: @escaping (_ data:Bool?) -> Void) {
+        guard let url = URL(string: "\(serverUrl)\(path)") else {
+           callback(false)
+            return
+        }
+        let defaults = UserDefaults.standard
+        var request = URLRequest(url: url)
+        
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = "DELETE"
+        
+        if let jwt = defaults.string(forKey: "jwt") {
+            request.addValue("Bearer \(jwt)", forHTTPHeaderField: "Authorization")
+        }
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            callback(true)
+        }.resume()
+    }
+    
 }

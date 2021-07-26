@@ -15,6 +15,12 @@ class UserService {
             }
     }
     
+    func removeWatchedWork(workId: Int, callback: @escaping (_ success: Bool?) -> Void) -> Void {
+        MyHttpService.delete(path: "/watched/works/\(workId)") { response in
+                callback(response)
+            }
+    }
+    
     func searchUsersByTitle(title: String, callback: @escaping (_ response: [UserResponse]?) -> Void) -> Void {
         MyHttpService.get(path: "/user/search/name/\(title)", responseType: [UserResponse].self) { response in
             callback(response)
