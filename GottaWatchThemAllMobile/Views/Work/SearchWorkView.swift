@@ -32,7 +32,7 @@ extension View {
 }
 
 struct SearchWorkRow: View {
-    @ObservedObject var imageLoader:ImageLoader
+    @ObservedObject var imageLoader:ImageLoader = ImageLoader(urlString: "")
     @State var image:UIImage = UIImage()
     var work: Work
     @State var myWorks: [Work] = []

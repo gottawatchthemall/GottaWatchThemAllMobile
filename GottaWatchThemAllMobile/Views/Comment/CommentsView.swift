@@ -10,6 +10,8 @@ import SwiftUI
 struct CommentsView: View {
     var work: Work
     @State var comments: [Comment] = []
+    @State private var newComment: String = ""
+
     
     init(work: Work) {
         UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont(name: "PokemonSolidNormal", size: 32)!]
@@ -26,7 +28,31 @@ struct CommentsView: View {
             }.onAppear() {
                 loadComments()
             }
+            HStack {
+                Text("Ajouter un commentaire :")
+                    .padding(.leading, 8.0)
+                Spacer()
+            }
+            HStack {
+                TextEditor(text: $newComment)
+                    .foregroundColor(Color.gray)
+                    .font(.custom("HelveticaNeue", size: 13))
+                    .frame(height: 100, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                Button(action: {
+                    
+                }, label: {
+                    Image(systemName: "paperplane.circle.fill").resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width:50, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        .foregroundColor(.green)
+                    
+                })
+                .padding(.trailing, 25.0)
+            }.border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
+
             }.navigationBarTitle("Commentaires")
+            
+        
     }
     
     func loadComments() {

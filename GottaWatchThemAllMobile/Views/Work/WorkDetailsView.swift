@@ -9,11 +9,11 @@ import SwiftUI
 
 struct WorkDetailsView: View {
     
-    @ObservedObject var imageLoader:ImageLoader
+    @ObservedObject var imageLoader:ImageLoader = ImageLoader(urlString: "")
     @State var image:UIImage = UIImage()
-    @State var canDelete: Bool
+    @State var canDelete: Bool = false
     var work: Work
-    @State var canAdd: Bool
+    @State var canAdd: Bool = false
     @State var displayWarning = false
     
     init(work: Work, canDelete: Bool, canAdd: Bool) {
@@ -25,6 +25,7 @@ struct WorkDetailsView: View {
         } else {
             imageLoader = ImageLoader(urlString: "")
         }
+        
         
         UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont(name: "PokemonSolidNormal", size: 32)!]
 
