@@ -43,14 +43,24 @@ struct SearchWorkRow: View {
     
     init(work: Work, myWorks: [Work]) {
         self.work = work
-    
+        self.myWorks = myWorks
+        
         if let poster = work.poster {
             imageLoader = ImageLoader(urlString: poster)
         } else {
             imageLoader = ImageLoader(urlString: "")
         }
-        self.myWorks = myWorks
-        
+    }
+    
+    func removeWork(workId: Int) {
+        UserService().removeWatchedWork(workId: workId) { response in
+            //faire apparaître un pop up de validation
+            if(response == true) {
+                if let workIndex = myWorks.firstIndex(where: {$0.id == workId}) {
+                    myWorks.remove(at: workIndex)
+                }
+            }
+        }
     }
     
     func addWork(imdbId: String) {
@@ -62,10 +72,6 @@ struct SearchWorkRow: View {
             }
             
         }
-    }
-    
-    func removeWork(imdbId: String) {
-        //remove le user work
     }
     
     var body: some View {
@@ -90,6 +96,7 @@ struct SearchWorkRow: View {
             
             if(containWork() == false) {
                 Button {
+                    print("CLiqué sur ajouter")
                     //ici faire la requête
                     if let imdbId = work.imdbId {
                         addWork(imdbId: imdbId)
@@ -100,9 +107,10 @@ struct SearchWorkRow: View {
                 }
             } else {
                 Button {
+                    print("CLiqué sur supprimer")
                     //ici faire la requête de suppression
-                    if let imdbId = work.imdbId {
-                        removeWork(imdbId: imdbId)
+                    if let workId = myWorks.first(where: {$0.imdbId == work.imdbId})?.id {
+                        removeWork(workId: workId)
                     }
                     
                 } label: {
@@ -128,8 +136,10 @@ struct SearchWorkView: View {
         isLoading = true
         WorkService().findMyWatchedWorks() { watchedWorks in
             isLoading = false
+//            print("je suis passé dans find my work")
+//            print(watchedWorks)
             if let newWorks = watchedWorks {
-                myWorks = newWorks
+                self.myWorks = newWorks
             }
         }
     }

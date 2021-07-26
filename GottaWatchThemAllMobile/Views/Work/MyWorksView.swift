@@ -49,7 +49,6 @@ struct WorkRow: View {
 struct MyWorksView: View {
     
     @State var works: [Work] = []
-//    @Binding var isLoading: Bool
     @Binding var isLoading: Bool
     
     var body: some View {
@@ -80,6 +79,7 @@ struct WorksView: View {
                 }
             }
         } else {
+            
             if let userId = user?.id {
                 WorkService().findUserWatchedWorks(userId: userId) { watchedWorks in
                     if let newWorks = watchedWorks {
