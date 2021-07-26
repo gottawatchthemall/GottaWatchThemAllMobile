@@ -48,7 +48,7 @@ struct UserListView: View {
     @State var users: [UserResponse] = []
     @State var showCancelButton = false
     @State var searchText = ""
-    @Binding var isLoading: Bool
+    @EnvironmentObject var settings: Settings
     
     var body: some View {
         NavigationView {
@@ -92,7 +92,7 @@ struct UserListView: View {
                 
                 List (self.users) { user in
                     NavigationLink(
-                        destination: WorksView(title: "User Works", user: user, displayBack: true, isMine: false, isLoading: $isLoading)) {
+                        destination: WorksView(title: "User Works", user: user, displayBack: true, isMine: false)) {
                             SearchUserRow(user: user)
                         }
                 }
@@ -107,9 +107,9 @@ struct UserListView: View {
     }
     
     func findUsersByTitle(title: String) {
-        isLoading = true
+        settings.isLoading = true
         UserService().searchUsersByTitle(title: title) { response in
-            isLoading = false
+            settings.isLoading = false
             if let allUsers = response {
                 self.users = allUsers
             }
@@ -121,7 +121,7 @@ struct UserListView: View {
 
 struct UserListView_Previews: PreviewProvider {
     static var previews: some View {
-        UserListView(isLoading: .constant(false))
+        UserListView()
         SearchUserRow(user: UserResponse(id: 0, name: "popo", email: "lucapopo@mail.fr", vulgar: false))
     }
 }

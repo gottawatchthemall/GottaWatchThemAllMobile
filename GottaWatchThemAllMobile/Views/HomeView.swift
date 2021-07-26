@@ -10,26 +10,26 @@ import SwiftUI
 struct HomeView: View {
     
     @State var isLoading = false
-
+    @EnvironmentObject var settings: Settings
+    
     var body: some View {
-        ZStack {
             VStack {
                 Spacer()
                 
                 TabView {
-                    MyWorksView(isLoading: $isLoading)
+                    MyWorksView()
                         .tabItem {
                             Text("Watched")
                             Image(systemName: "tv")
                         }
                     
-                    SearchWorkView(isLoading: $isLoading)
+                    SearchWorkView()
                         .tabItem {
                             Text("Works")
                             Image(systemName: "magnifyingglass")
                         }
                     
-                    UserListView(isLoading: $isLoading)
+                    UserListView()
                         .tabItem {
                             Text("Users")
                             Image(systemName: "person.crop.rectangle")
@@ -41,9 +41,6 @@ struct HomeView: View {
                 .accentColor(.red)
 
             }
-            LoaderView(isLoading: isLoading)
-        }
-        
     }
 }
 

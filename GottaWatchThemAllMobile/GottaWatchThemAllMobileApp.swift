@@ -17,15 +17,19 @@ struct GottaWatchThemAllMobileApp: App {
 //    }
     
     @State var isLog = false
+    @StateObject var settings = Settings()
     
-    var body: some Scene { 
+    var body: some Scene {
         WindowGroup {
+            ZStack {
+                if(isLog) {
+                    HomeView()
+                } else {
+                    MainLogView(isLog: $isLog)
+                }
+                LoaderView(isLoading: settings.isLoading)
+            }.environmentObject(settings)
             
-            if(isLog) {
-                HomeView()
-            } else {
-                MainLogView(isLog: $isLog)
-            }
             
         }
     }

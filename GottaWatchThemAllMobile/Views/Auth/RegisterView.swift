@@ -14,7 +14,7 @@ struct RegisterView: View {
     @State var email: String = ""
     
     @Binding var isRegisterActive: Bool
-    @Binding var isLoading: Bool
+    @EnvironmentObject var settings: Settings
     
     
     var body: some View {
@@ -26,13 +26,13 @@ struct RegisterView: View {
             PasswordFieldView(value: $password)
             Spacer()
             SimpleButtonView(buttonTitle: "Validate", buttonColor: Color("BlackPokeball")) {
-                isLoading = true
+                settings.isLoading = true
                 let userAuth = UserAuth(username: username, email: email, password: password)
                 
                 AuthService().register(userAuth: userAuth) { response in
-                    isLoading = false
+                    settings.isLoading = false
                     if(response != nil) {
-                        isRegisterActive = false;
+                        isRegisterActive = false
                     } else {
                         //afficher une erreur
                         print("Erreur lors du register")
@@ -48,6 +48,6 @@ struct RegisterView: View {
 
 struct RegisterView_Previews: PreviewProvider {
     static var previews: some View {
-        RegisterView(isRegisterActive: .constant(true), isLoading: .constant(false))
+        RegisterView(isRegisterActive: .constant(true))
     }
 }

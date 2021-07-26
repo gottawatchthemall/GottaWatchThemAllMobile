@@ -49,11 +49,10 @@ struct WorkRow: View {
 struct MyWorksView: View {
     
     @State var works: [Work] = []
-    @Binding var isLoading: Bool
     
     var body: some View {
         NavigationView {
-            WorksView(title: "Watched Works", isMine: true, isLoading: $isLoading)
+            WorksView(title: "Watched Works", isMine: true)
         }
     }
     
@@ -65,15 +64,15 @@ struct WorksView: View {
     var user: UserResponse?
     var displayBack = false
     var isMine: Bool
-    @Binding var isLoading: Bool
-    
+    @EnvironmentObject var settings: Settings
     @State var works: [Work] = []
     @State var myWorks: [Work] = []
     
     func loadMyWatchedWorks() {
-        isLoading = true
+        settings.isLoading = true
         if user == nil {
             WorkService().findMyWatchedWorks() { watchedWorks in
+                settings.isLoading = false
                 if let newWorks = watchedWorks {
                     works = newWorks
                 }
@@ -82,20 +81,22 @@ struct WorksView: View {
             
             if let userId = user?.id {
                 WorkService().findUserWatchedWorks(userId: userId) { watchedWorks in
+                    settings.isLoading = false
                     if let newWorks = watchedWorks {
                         works = newWorks
                     }
                 }
                 WorkService().findMyWatchedWorks() { watchedWorks in
+                    settings.isLoading = false
                     if let newWorks = watchedWorks {
                         myWorks = newWorks
                     }
                 }
             } else {
+                settings.isLoading = false
                 //TODO display erreur
             }
         }
-        isLoading = false
     }
     
     func notAlreadyHaveWork(work: Work) -> Bool {
@@ -127,7 +128,7 @@ struct WorksView: View {
 
 struct MyWorksView_Previews: PreviewProvider {
     static var previews: some View {
-        MyWorksView(isLoading: .constant(false))
+        MyWorksView()
         WorkRow(work: Work(id: 1, title: "Pirate des c", year: "2020", type: "Piraterie", poster:"https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg"))
     }
 }

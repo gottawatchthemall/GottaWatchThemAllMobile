@@ -11,27 +11,23 @@ struct MainLogView: View {
     
     @Binding var isLog: Bool
     @State var isRegisterViewActive = false
-    @State var isLoading = false
+    @EnvironmentObject var settings: Settings
     
     var body: some View {
-        ZStack {
-            NavigationView {
-                
-                VStack {
-                    LoginView(isLog: $isLog, isLoading: $isLoading)
-                    
-                    
-                    NavigationLink(
-                        destination: RegisterView(isRegisterActive: $isRegisterViewActive, isLoading: $isLoading),
-                        isActive: $isRegisterViewActive,
-                        label: {
-                            Text("New account")
-                                .appButton(buttonWidth: 220, buttonHeight: 60, buttonColor: Color("BlackPokeball"))
-                        }).disabled(isLoading)
-                }
-            }
+        NavigationView {
             
-            LoaderView(isLoading: isLoading)
+            VStack {
+                LoginView(isLog: $isLog)
+                
+                
+                NavigationLink(
+                    destination: RegisterView(isRegisterActive: $isRegisterViewActive),
+                    isActive: $isRegisterViewActive,
+                    label: {
+                        Text("New account")
+                            .appButton(buttonWidth: 220, buttonHeight: 60, buttonColor: Color("BlackPokeball"))
+                    }).disabled(settings.isLoading)
+            }
         }
         
     }
