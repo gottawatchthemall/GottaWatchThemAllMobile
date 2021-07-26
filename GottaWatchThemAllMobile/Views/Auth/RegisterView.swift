@@ -14,6 +14,7 @@ struct RegisterView: View {
     @State var email: String = ""
     
     @Binding var isRegisterActive: Bool
+    @Binding var isLoading: Bool
     
     
     var body: some View {
@@ -25,9 +26,11 @@ struct RegisterView: View {
             PasswordFieldView(value: $password)
             Spacer()
             SimpleButtonView(buttonTitle: "Validate", buttonColor: Color("BlackPokeball")) {
+                isLoading = true
                 let userAuth = UserAuth(username: username, email: email, password: password)
                 
                 AuthService().register(userAuth: userAuth) { response in
+                    isLoading = false
                     if(response != nil) {
                         isRegisterActive = false;
                     } else {
@@ -45,6 +48,6 @@ struct RegisterView: View {
 
 struct RegisterView_Previews: PreviewProvider {
     static var previews: some View {
-        RegisterView(isRegisterActive: .constant(true))
+        RegisterView(isRegisterActive: .constant(true), isLoading: .constant(false))
     }
 }

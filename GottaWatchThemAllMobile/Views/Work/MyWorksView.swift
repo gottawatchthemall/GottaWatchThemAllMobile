@@ -49,26 +49,29 @@ struct WorkRow: View {
 struct MyWorksView: View {
     
     @State var works: [Work] = []
+//    @Binding var isLoading: Bool
+    @Binding var isLoading: Bool
     
     var body: some View {
-        
         NavigationView {
-            WorksView(title: "Watched Works", isMine: true)
+            WorksView(title: "Watched Works", isMine: true, isLoading: $isLoading)
         }
-    
     }
+    
 }
 
 struct WorksView: View {
     
     var title: String
     var user: UserResponse?
-    var displayBack = false;
-    var isMine: Bool;
+    var displayBack = false
+    var isMine: Bool
+    @Binding var isLoading: Bool
     
     @State var works: [Work] = []
     
     func loadMyWatchedWorks() {
+        isLoading = true
         if user == nil {
             WorkService().findMyWatchedWorks() { watchedWorks in
                 if let newWorks = watchedWorks {
@@ -85,8 +88,8 @@ struct WorksView: View {
             } else {
                 //TODO display erreur
             }
-            
         }
+        isLoading = false
     }
     
     var body: some View {
@@ -114,7 +117,7 @@ struct WorksView: View {
 
 struct MyWorksView_Previews: PreviewProvider {
     static var previews: some View {
-        MyWorksView()
+        MyWorksView(isLoading: .constant(false))
         WorkRow(work: Work(id: 1, title: "Pirate des c", year: "2020", type: "Piraterie", poster:"https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg"))
     }
 }

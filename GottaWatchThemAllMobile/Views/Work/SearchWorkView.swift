@@ -121,10 +121,13 @@ struct SearchWorkView: View {
     @State var showCancelButton = false
     @State var searchText = ""
     @State var myWorks: [Work] = []
+    @Binding var isLoading: Bool
     
     
     func loadMyWatchedWorks() {
+        isLoading = true
         WorkService().findMyWatchedWorks() { watchedWorks in
+            isLoading = false
             if let newWorks = watchedWorks {
                 myWorks = newWorks
             }
@@ -132,7 +135,9 @@ struct SearchWorkView: View {
     }
     
     func findWorksByTitle(title: String) {
+        isLoading = true
         WorkService().searchWorkByTitle(title: title) { response in
+            isLoading = false
             if let allWorks = response {
                 self.works = allWorks
             }
@@ -196,6 +201,6 @@ struct SearchWorkView: View {
 
 struct SearchWorkView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchWorkView()
+        SearchWorkView(isLoading: .constant(false))
     }
 }

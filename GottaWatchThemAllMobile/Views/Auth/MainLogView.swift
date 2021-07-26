@@ -22,7 +22,7 @@ struct MainLogView: View {
                     
                     
                     NavigationLink(
-                        destination: RegisterView(isRegisterActive: $isRegisterViewActive),
+                        destination: RegisterView(isRegisterActive: $isRegisterViewActive, isLoading: $isLoading),
                         isActive: $isRegisterViewActive,
                         label: {
                             Text("New account")
