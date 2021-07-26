@@ -21,6 +21,13 @@ struct CommentsView: View {
 //        comments.append(Comment(id: 3, content: "Vraiment bien le film", vulgar: false, userId: 8, workId: 8, publishAt: Date()))
     }
     
+    func addComment(content: String, workId: Int) {
+        CommentService().addComment(content: content, workId: workId) {
+            newComment = ""
+            loadComments()
+        }
+    }
+    
     var body: some View {
         VStack {
             List(comments) { comment in
@@ -39,14 +46,17 @@ struct CommentsView: View {
                     .font(.custom("HelveticaNeue", size: 13))
                     .frame(height: 100, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 Button(action: {
-                    
+                    if let workId = self.work.id {
+                        print("CLiqué sur ajouter")
+                        addComment(content: newComment, workId: workId)
+                    }
                 }, label: {
                     Image(systemName: "paperplane.circle.fill").resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width:50, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        .foregroundColor(.green)
+                        .foregroundColor(newComment.isEmpty ? Color("RedPokeball") : Color("BluePokeball"))
                     
-                })
+                }).disabled(newComment.isEmpty)
                 .padding(.trailing, 25.0)
             }.border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
 

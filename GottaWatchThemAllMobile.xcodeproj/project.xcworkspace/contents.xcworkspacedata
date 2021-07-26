@@ -2,21 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/jeremyternisien/Dev/iOS/GottaWatchThemAllMobile/GottaWatchThemAllMobile/GottaWatchThemAllMobile/InputFieldView.swift">
-   </FileRef>
-   <FileRef
-      location = "group:/Users/jeremyternisien/Dev/iOS/GottaWatchThemAllMobile/GottaWatchThemAllMobile/GottaWatchThemAllMobile/GottaWatchThemAllMobile.swift">
-   </FileRef>
-   <FileRef
-      location = "group:/Users/jeremyternisien/Dev/iOS/GottaWatchThemAllMobile/GottaWatchThemAllMobile/GottaWatchThemAllMobile/PasswordField.swift">
-   </FileRef>
-   <FileRef
-      location = "group:/Users/jeremyternisien/Dev/iOS/GottaWatchThemAllMobile/GottaWatchThemAllMobile/GottaWatchThemAllMobile/Pokemon-Black.ttf">
-   </FileRef>
-   <FileRef
-      location = "group:/Users/jeremyternisien/Dev/iOS/GottaWatchThemAllMobile/GottaWatchThemAllMobile/GottaWatchThemAllMobile/Pokemon-White.ttf">
-   </FileRef>
-   <FileRef
       location = "self:">
    </FileRef>
 </Workspace>

@@ -31,7 +31,9 @@ struct RegularComment: View{
                     Text("\(username)").underline()
                 }
                 Spacer()
-                Text(Date(), style: .date)
+                if let publishAt = comment.publishAt {
+                    Text(publishAt)
+                }
                 
             }
             HStack {
@@ -73,7 +75,7 @@ struct BannedComment: View{
 struct CommentRow_Previews: PreviewProvider {
     static var previews: some View {
         CommentRow(comment:
-                    Comment(id: 1, content: "Test de commentaire", vulgar: false, userId: 5, workId: 8, publishAt: "ajourdhui")
+                    Comment(id: 1, content: "Test de commentaire", vulgar: false, userId: 5, workId: 8, publishAt: "July 2 2019")
         )
         
     }

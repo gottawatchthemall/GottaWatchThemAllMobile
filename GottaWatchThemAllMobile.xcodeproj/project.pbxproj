@@ -30,6 +30,7 @@
 		89863C862673775B00AE8D04 /* Work.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89863C852673775B00AE8D04 /* Work.swift */; };
 		89863C882673892500AE8D04 /* WorkDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89863C872673892500AE8D04 /* WorkDetailsView.swift */; };
 		89A00A302697694D00DFEAD8 /* WorkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A00A2F2697694D00DFEAD8 /* WorkResponse.swift */; };
+		89E8194C26AF19D600971E5A /* CreateCommentDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E8194B26AF19D600971E5A /* CreateCommentDTO.swift */; };
 		89F025A4266E107F006029DC /* GottaWatchThemAllMobileApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F025A3266E107F006029DC /* GottaWatchThemAllMobileApp.swift */; };
 		89F025A8266E1083006029DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89F025A7266E1083006029DC /* Assets.xcassets */; };
 		89F025AB266E1083006029DC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89F025AA266E1083006029DC /* Preview Assets.xcassets */; };
@@ -70,6 +71,7 @@
 		89863C852673775B00AE8D04 /* Work.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Work.swift; sourceTree = "<group>"; };
 		89863C872673892500AE8D04 /* WorkDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkDetailsView.swift; sourceTree = "<group>"; };
 		89A00A2F2697694D00DFEAD8 /* WorkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkResponse.swift; sourceTree = "<group>"; };
+		89E8194B26AF19D600971E5A /* CreateCommentDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCommentDTO.swift; sourceTree = "<group>"; };
 		89F025A0266E107F006029DC /* GottaWatchThemAllMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GottaWatchThemAllMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89F025A3266E107F006029DC /* GottaWatchThemAllMobileApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GottaWatchThemAllMobileApp.swift; sourceTree = "<group>"; };
 		89F025A7266E1083006029DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 				89FE014B269762E700102CF0 /* Media.swift */,
 				89A00A2F2697694D00DFEAD8 /* WorkResponse.swift */,
 				201EB8CF269F143B00B7172E /* UserResponse.swift */,
+				89E8194B26AF19D600971E5A /* CreateCommentDTO.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 				894B297B26988DF5007B3CE5 /* UserService.swift in Sources */,
 				891C950E267257C50020D788 /* SimpleButtonView.swift in Sources */,
 				896159DD26973EEC00FC63B2 /* SigninResponse.swift in Sources */,
+				89E8194C26AF19D600971E5A /* CreateCommentDTO.swift in Sources */,
 				89A00A302697694D00DFEAD8 /* WorkResponse.swift in Sources */,
 				201EB8D0269F143B00B7172E /* UserResponse.swift in Sources */,
 			);
