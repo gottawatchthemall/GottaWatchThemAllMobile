@@ -91,7 +91,7 @@ struct UserListView: View {
                 
                 List (self.users) { user in
                     NavigationLink(
-                        destination: WorksView(title: "User Works", user: user, displayBack: true)) {
+                        destination: WorksView(title: "User Works", user: user, displayBack: true, isMine: false)) {
                             SearchUserRow(user: user)
                         }
                 }

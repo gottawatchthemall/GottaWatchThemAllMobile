@@ -11,12 +11,14 @@ struct WorkDetailsView: View {
     
     @ObservedObject var imageLoader:ImageLoader
     @State var image:UIImage = UIImage()
+    var canDelete: Bool
     var work: Work
     
     @State var displayWarning = false
     
-    init(work: Work) {
+    init(work: Work, canDelete: Bool) {
         self.work = work
+        self.canDelete = canDelete
         if let poster = work.poster {
             imageLoader = ImageLoader(urlString: poster)
         } else {
@@ -64,14 +66,17 @@ struct WorkDetailsView: View {
                         Text("Commentaire").appButton(buttonWidth: 150, buttonHeight: 60, buttonColor: Color.orange)
                             }
                         .padding(.bottom, 11.0)
+                    //mettre un if ici du coup
+                    if(canDelete) {
+                        SimpleButtonView(buttonTitle: "Supprimer", buttonColor: Color.red, buttonWidth: 150, action: { self.displayWarning.toggle()})
+                            .padding(.bottom, 11.0)
+                            .actionSheet(isPresented: $displayWarning) {
+                                ActionSheet(title: Text("Suppression"), message: Text("Etes-vous sur de supprimer l'oeuvre de votre liste ?"),
+                                            buttons: [.destructive(Text("Supprimer"), action: {print("salut")}),
+                                                      .default(Text("Annuler"), action: {print("Supression")})])
+                            }
+                    }
                     
-                    SimpleButtonView(buttonTitle: "Supprimer", buttonColor: Color.red, buttonWidth: 150, action: { self.displayWarning.toggle()})
-                        .padding(.bottom, 11.0)
-                        .actionSheet(isPresented: $displayWarning) {
-                            ActionSheet(title: Text("Suppression"), message: Text("Etes-vous sur de supprimer l'oeuvre de votre liste ?"),
-                                        buttons: [.destructive(Text("Supprimer"), action: {print("salut")}),
-                                                  .default(Text("Annuler"), action: {print("Supression")})])
-                        }
                 }
             }
             .navigationBarTitle(Text(work.title ?? ""))
@@ -81,6 +86,6 @@ struct WorkDetailsView: View {
 
 struct WorkDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        WorkDetailsView(work: Work(id: 1, title: "Pirate des c", year: "2020", type: "Piraterie", poster:"link"))
+        WorkDetailsView(work: Work(id: 1, title: "Pirate des c", year: "2020", type: "Piraterie", poster:"link"), canDelete: true)
     }
 }

@@ -53,9 +53,9 @@ struct MyWorksView: View {
     var body: some View {
         
         NavigationView {
-            WorksView(title: "Watched Works")
+            WorksView(title: "Watched Works", isMine: true)
         }
-        
+    
     }
 }
 
@@ -64,6 +64,7 @@ struct WorksView: View {
     var title: String
     var user: UserResponse?
     var displayBack = false;
+    var isMine: Bool;
     
     @State var works: [Work] = []
     
@@ -96,7 +97,7 @@ struct WorksView: View {
             
             List(works) { work in
                 NavigationLink(
-                    destination: WorkDetailsView(work: work)) {
+                    destination: WorkDetailsView(work: work, canDelete: isMine)) {
                     WorkRow(work: work)
                 }
             }.onAppear() {
