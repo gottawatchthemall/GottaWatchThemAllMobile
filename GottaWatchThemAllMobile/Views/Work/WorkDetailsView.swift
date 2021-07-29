@@ -11,9 +11,9 @@ struct WorkDetailsView: View {
     
     @ObservedObject var imageLoader:ImageLoader = ImageLoader(urlString: "")
     @State var image:UIImage = UIImage()
-    @State var canDelete: Bool = false
+    @State var canDelete: Bool 
     var work: Work
-    @State var canAdd: Bool = false
+    @State var canAdd: Bool
     @State var displayWarning = false
     
     init(work: Work, canDelete: Bool, canAdd: Bool) {
