@@ -11,7 +11,7 @@ struct WorkDetailsView: View {
     
     @ObservedObject var imageLoader:ImageLoader = ImageLoader(urlString: "")
     @State var image:UIImage = UIImage()
-    @State var canDelete: Bool 
+    @State var canDelete: Bool
     var work: Work
     @State var canAdd: Bool
     @State var displayWarning = false
@@ -104,7 +104,7 @@ struct WorkDetailsView: View {
                     }
                     
                     if(canAdd) {
-                        SimpleButtonView(buttonTitle: "Ajouter", buttonColor: Color.red, buttonWidth: 150) {
+                        SimpleButtonView(buttonTitle: "Ajouter", buttonColor: Color("BluePokeball"), buttonWidth: 150) {
                             if let imdbId = work.imdbId {
                                 addWork(imdbId: imdbId)
                             }
